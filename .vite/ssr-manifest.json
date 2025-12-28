@@ -1,0 +1,605 @@
+{
+  "\u0000/home/runner/work/avaliability_beta/avaliability_beta/node_modules/jquery/dist/jquery.js?commonjs-es-import": [],
+  "\u0000/home/runner/work/avaliability_beta/avaliability_beta/node_modules/jquery/dist/jquery.js?commonjs-module": [],
+  "\u0000/home/runner/work/avaliability_beta/avaliability_beta/node_modules/localforage/dist/localforage.js?commonjs-es-import": [],
+  "\u0000/home/runner/work/avaliability_beta/avaliability_beta/node_modules/localforage/dist/localforage.js?commonjs-module": [],
+  "\u0000/home/runner/work/avaliability_beta/avaliability_beta/node_modules/markdown-it-quote/dist/markdown-it-quote.cjs.js?commonjs-es-import": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "\u0000/home/runner/work/avaliability_beta/avaliability_beta/node_modules/parallax-js/dist/parallax.js?commonjs-es-import": [],
+  "\u0000/home/runner/work/avaliability_beta/avaliability_beta/node_modules/parallax-js/dist/parallax.js?commonjs-module": [],
+  "\u0000commonjs-dynamic-modules": [],
+  "\u0000commonjsHelpers.js": [],
+  "\u0000plugin-vue:export-helper": [],
+  "\u0000vite/modulepreload-polyfill.js": [],
+  "\u0000vite/preload-helper.js": [],
+  "index.html": [],
+  "node_modules/@giscus/vue/dist/giscus-Ci9LqPcC.js": [
+    "/avaliability_beta/assets/giscus-Ci9LqPcC-BPnMVyiD.js"
+  ],
+  "node_modules/@giscus/vue/dist/index.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/@mdit/plugin-align/lib/index.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/@mdit/plugin-attrs/lib/index.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/@mdit/plugin-container/lib/index.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/@mdit/plugin-footnote/lib/index.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/@mdit/plugin-ins/lib/index.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/@unhead/vue/dist/client.mjs": [],
+  "node_modules/@unhead/vue/dist/shared/vue.Bm-NbY4b.mjs": [],
+  "node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js": [],
+  "node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js": [],
+  "node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js": [],
+  "node_modules/@vue/shared/dist/shared.esm-bundler.js": [],
+  "node_modules/axios/index.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/adapters/adapters.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/adapters/fetch.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/adapters/xhr.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/axios.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/cancel/CancelToken.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/cancel/CanceledError.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/cancel/isCancel.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/core/Axios.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/core/AxiosError.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/core/AxiosHeaders.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/core/InterceptorManager.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/core/buildFullPath.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/core/dispatchRequest.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/core/mergeConfig.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/core/settle.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/core/transformData.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/defaults/index.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/defaults/transitional.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/env/data.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/AxiosURLSearchParams.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/HttpStatusCode.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/bind.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/buildURL.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/combineURLs.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/composeSignals.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/cookies.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/formDataToJSON.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/isAbsoluteURL.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/isAxiosError.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/isURLSameOrigin.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/null.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/parseHeaders.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/parseProtocol.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/progressEventReducer.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/resolveConfig.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/speedometer.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/spread.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/throttle.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/toFormData.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/toURLEncodedForm.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/trackStream.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/helpers/validator.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/platform/browser/classes/Blob.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/platform/browser/classes/FormData.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/platform/browser/classes/URLSearchParams.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/platform/browser/index.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/platform/common/utils.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/platform/index.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/axios/lib/utils.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/entities/lib/esm/decode.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/entities/lib/esm/decode_codepoint.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/entities/lib/esm/generated/decode-data-html.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/entities/lib/esm/generated/decode-data-xml.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/hookable/dist/index.mjs": [],
+  "node_modules/jquery/dist/jquery.js": [],
+  "node_modules/linkify-it/index.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/linkify-it/lib/re.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/localforage/dist/localforage.js": [],
+  "node_modules/markdown-it-quote/dist/markdown-it-quote.cjs.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/common/html_blocks.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/common/html_re.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/common/utils.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/helpers/index.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/helpers/parse_link_destination.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/helpers/parse_link_label.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/helpers/parse_link_title.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/index.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/parser_block.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/parser_core.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/parser_inline.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/presets/commonmark.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/presets/default.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/presets/zero.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/renderer.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/ruler.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/blockquote.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/code.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/fence.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/heading.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/hr.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/html_block.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/lheading.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/list.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/paragraph.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/reference.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/state_block.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/table.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_core/block.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_core/inline.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_core/linkify.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_core/normalize.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_core/replacements.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_core/smartquotes.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_core/state_core.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_core/text_join.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/autolink.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/backticks.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/balance_pairs.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/emphasis.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/entity.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/escape.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/fragments_join.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/html_inline.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/image.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/link.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/linkify.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/newline.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/state_inline.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/strikethrough.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/text.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/markdown-it/lib/token.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/mdurl/index.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/mdurl/lib/decode.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/mdurl/lib/encode.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/mdurl/lib/format.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/mdurl/lib/parse.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/parallax-js/dist/parallax.js": [],
+  "node_modules/punycode.js/punycode.es6.js": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/uc.micro/categories/Cc/regex.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/uc.micro/categories/Cf/regex.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/uc.micro/categories/P/regex.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/uc.micro/categories/S/regex.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/uc.micro/categories/Z/regex.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/uc.micro/index.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/uc.micro/properties/Any/regex.mjs": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "node_modules/unhead/dist/client.mjs": [],
+  "node_modules/unhead/dist/shared/unhead.CGCfDSEL.mjs": [],
+  "node_modules/unhead/dist/shared/unhead.CYpwL2hc.mjs": [],
+  "node_modules/unhead/dist/shared/unhead.CbpEuj3y.mjs": [],
+  "node_modules/unhead/dist/shared/unhead.yem5I2v_.mjs": [],
+  "node_modules/vite-ssg/dist/index.mjs": [],
+  "node_modules/vite-ssg/dist/shared/vite-ssg.C6pK7rvr.mjs": [],
+  "node_modules/vite-ssg/dist/shared/vite-ssg.ETIvV-80.mjs": [],
+  "node_modules/vue-router/dist/devtools-EWN81iOl.mjs": [],
+  "node_modules/vue-router/dist/vue-router.mjs": [],
+  "src/App.vue": [],
+  "src/App.vue?vue&type=script&setup=true&lang.ts": [],
+  "src/App.vue?vue&type=style&index=0&scoped=182b1cd1&lang.css": [],
+  "src/components/Comments.vue": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "src/components/MainView.vue": [],
+  "src/components/MainViewNavbar.vue": [],
+  "src/main.js": [],
+  "src/pages/Home.vue": [
+    "/avaliability_beta/assets/Home-B1-E79OK.js",
+    "/avaliability_beta/assets/Home-DZqq3OuY.css"
+  ],
+  "src/pages/Home.vue?vue&type=style&index=0&scoped=6c903c78&lang.css": [
+    "/avaliability_beta/assets/Home-B1-E79OK.js",
+    "/avaliability_beta/assets/Home-DZqq3OuY.css"
+  ],
+  "src/pages/News.vue": [
+    "/avaliability_beta/assets/News-CYZxOT0R.js",
+    "/avaliability_beta/assets/News-DR5fr0g2.css"
+  ],
+  "src/pages/News.vue?vue&type=style&index=0&scoped=5670a180&lang.css": [
+    "/avaliability_beta/assets/News-CYZxOT0R.js",
+    "/avaliability_beta/assets/News-DR5fr0g2.css"
+  ],
+  "src/pages/NotFound.vue": [
+    "/avaliability_beta/assets/NotFound-BHH_GRmZ.js"
+  ],
+  "src/pages/Settings.vue": [
+    "/avaliability_beta/assets/Settings-BqJ-GWEh.js"
+  ],
+  "src/pages/Text.vue": [
+    "/avaliability_beta/assets/Text-DWfrNQVy.js",
+    "/avaliability_beta/assets/Text-DOpu7Q-Y.css"
+  ],
+  "src/pages/Text.vue?vue&type=style&index=0&scoped=6f6140c1&lang.css": [
+    "/avaliability_beta/assets/Text-DWfrNQVy.js",
+    "/avaliability_beta/assets/Text-DOpu7Q-Y.css"
+  ],
+  "src/pages/View.vue": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "src/pages/View.vue?vue&type=style&index=0&scoped=fe1b81e9&lang.css": [
+    "/avaliability_beta/assets/View-DtKApwGT.js",
+    "/avaliability_beta/assets/View-CwicphCk.css"
+  ],
+  "src/router.js": [],
+  "src/style/bootstrap.scss": [],
+  "src/style/utils.css": [],
+  "src/utils.js": []
+}
