@@ -27,6 +27,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+
+      - name: Hack the build script
+        # 修改node_modules/vite-ssg/dist/node/cli.mjs中的内容
+        # 将const waitInSeconds = 15; 改为 const waitInSeconds = 0;
+        run: sed -i 's/const waitInSeconds = 15;/const waitInSeconds = 0;/' node_modules/vite-ssg/dist/node/cli.mjs
+
       - name: Build
         run: npm run build
 

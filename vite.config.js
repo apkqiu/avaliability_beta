@@ -23,9 +23,6 @@ export default defineConfig(({ mode }) => {
       alias: {
         '@': path.resolve(__dirname, './src')
       }
-    },
-    ssr: {
-      noExternal: ['@vue/runtime-dom']
     }
   }
 })

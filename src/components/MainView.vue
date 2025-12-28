@@ -1,5 +1,5 @@
 <script setup lang="js">
-import { onMounted, useTemplateRef, ref, watch, computed } from "vue";
+import { onMounted, useTemplateRef, ref } from "vue";
 import MainViewNavbar from "./MainViewNavbar.vue";
 import { hex2rgb, check } from "../utils";
 import localforage from "localforage";
