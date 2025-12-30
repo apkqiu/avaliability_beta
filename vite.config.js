@@ -6,7 +6,8 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   return {
-    plugins: [VueRouter(),vue(), vueJsx()],
+    plugins: [VueRouter(),vue()],
+    base: "/avaliability_beta/",
     css: {
       preprocessorOptions: {
         scss: {

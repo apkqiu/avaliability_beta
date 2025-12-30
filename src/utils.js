@@ -68,7 +68,7 @@ export function check(value_func, callback_func){
     }, 10);
 }
 
-export const root = ""
+export const root = "/avaliability_beta"
 export const public_dir = Object.keys(import.meta.glob("~/**/*")).map(x => x.replace("/public", root))
 
 // make public_dir an object like this:
@@ -134,7 +134,7 @@ function buildPathTree(paths) {
     return tree;
 }
 
-export const public_tree = buildPathTree(public_dir);
+export const public_tree = buildPathTree(public_dir).avaliability_beta;
 
 export async function getTitle(obj_url) {
     const resp = await axios.get(obj_url)
