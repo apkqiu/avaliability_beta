@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export function urlarg(name) {
     var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
     var r = window.location.search.substr(1).match(reg);
@@ -64,4 +66,93 @@ export function check(value_func, callback_func){
             old_value = new_value;
         }
     }, 10);
+}
+
+export const root = ""
+export const public_dir = Object.keys(import.meta.glob("~/**/*")).map(x => x.replace("/public", root))
+
+// make public_dir an object like this:
+/*
+{
+    public:
+    {
+        resource:{
+            images:{
+                "image1.png":"/resource/images/image1.png",
+                ...
+            },
+            ...
+        }
+            ,...
+    }
+}
+*/
+
+function getPathFromTree(tree, pathString) {
+    const parts = pathString.startsWith('/') ? pathString.slice(1).split('/') : pathString.split('/');
+    
+    let current = tree;
+    for (const part of parts) {
+        if (current === undefined || current[part] === undefined) {
+            return undefined;
+        }
+        current = current[part];
+    }
+    
+    // 如果最终结果是对象而不是字符串，说明是目录而不是文件
+    return typeof current === 'string' ? current : undefined;
+}
+function buildPathTree(paths) {
+    const tree = {};
+    
+    paths.forEach(path => {
+        // 移除开头的斜杠并分割路径
+        const parts = path.startsWith('/') ? path.slice(1).split('/') : path.split('/');
+        
+        let current = tree;
+        
+        // 遍历所有部分，最后一个部分特殊处理
+        for (let i = 0; i < parts.length; i++) {
+            const part = parts[i];
+            const isLast = i === parts.length - 1;
+            
+            if (isLast) {
+                // 最后一个部分是文件，存储完整路径
+                if (!current[part]) {
+                    current[part] = path;
+                }
+            } else {
+                // 中间部分是目录，确保是对象
+                if (!current[part]) {
+                    current[part] = {};
+                }
+                current = current[part];
+            }
+        }
+    });
+    
+    return tree;
+}
+
+export const public_tree = buildPathTree(public_dir);
+
+export async function getTitle(obj_url) {
+    const resp = await axios.get(obj_url)
+    const first_ln = resp.data.split("\n")[0]
+    if (first_ln.startsWith("#")) {
+        return first_ln.replace(/#+ /g, "")
+    }else{
+        return first_ln.replace("<h1>","").replace("</h1>","")
+    }
+}
+
+export function list_zhoubao(){
+    let ret = Object.keys(public_tree.res.pdf)
+    ret = ret.map((k)=>{
+        return k.substring(7, k.length - 4)
+    })
+    ret = ret.sort((a,b)=>{
+        return parseFloat(a) - parseFloat(b)
+    })
+    return ret
 }

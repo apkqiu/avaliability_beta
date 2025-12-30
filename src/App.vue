@@ -2,17 +2,20 @@
 import MainView from './components/MainView.vue';
 import { RouterView } from 'vue-router';
 import { chooseRandom, randbetween } from './utils';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 const key = ref(BigInt(0))
 const ikey = ref(BigInt(0))
+
 </script>
 
 <template>
+  <client-only>
   <RouterView v-slot="{ Component, route }" >
     <MainView :title="route.name" :key="key">
       故障排除
-      <button @click="key++" class="btn btn-sm">刷新页面</button>
-      <button @click="ikey++" class="btn btn-sm">刷新框架</button>
+      <button onclick="window.location.reload()" class="btn btn-sm">硬刷新</button>
+      <button @click="key++" class="btn btn-sm">软刷新（页面）</button>
+      <button @click="ikey++" class="btn btn-sm">软刷新（框架）</button>
       <Transition mode="fade">
         <div :key="route.fullPath+ikey">
           <component :is="Component" />
@@ -20,6 +23,7 @@ const ikey = ref(BigInt(0))
       </Transition>
     </MainView>
   </RouterView>
+  </client-only>
 </template>
 
 <style scoped>

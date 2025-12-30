@@ -3,13 +3,30 @@ a {
     text-decoration: none;
 }
 </style>
+<script setup>
+import { onMounted, ref } from "vue";
+import { root } from "../utils.js"
+import { public_tree } from "../utils.js";
+import { list_zhoubao, getTitle } from "../utils.js";
+const items = ref([])
+
+
+
+onMounted(async () => {
+    const dir_items = public_tree.articles.news;
+    for (let key in dir_items) {
+        items.value.push({name:key,title:await getTitle(dir_items[key])});
+    }
+})
+</script>
 <template>
     <div>
         <div id="carousel" class="carousel slide h-100" style="backdrop-filter: blur(20px)">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <RouterLink class="news-bg d-block w-100"
-                        style="background-image: url(/res/img/ccnews/013.1.01.jpeg);" to="/view?name=news013.1.md">
+                        :style="`background-image: url(${root}/res/img/ccnews/013.1.01.jpeg);`"
+                        to="/view?name=news013.1.md">
                         <div class="news-txt-box">
                             <div class="news-txt">
                                 <h1>传承中华体育魂</h1>
@@ -20,7 +37,7 @@ a {
                 </div>
                 <div class="carousel-item">
                     <RouterLink class="news-bg d-block w-100"
-                        style="background-image: url(/res/img/news/birdinclass.png);" to="pdf_/view#p=11">
+                        :style="`background-image: url(${root}/res/img/news/birdinclass.png);`" to="pdf_/view#p=11">
                         <div class="news-txt-box">
                             <div class="news-txt">
                                 <h1>震惊！我教室飞鸟</h1>
@@ -31,7 +48,7 @@ a {
                 </div>
                 <div class="carousel-item">
                     <div class="news-bg d-block w-100"
-                        style="background-image: url(/res/img/news/9clock_withsun.png);">
+                        :style="`background-image: url(${root}/res/img/news/9clock_withsun.png);`">
                         <div class="news-txt-box">
                             <div class="news-txt">
                                 <h1>“九点钟出太阳”</h1>
@@ -42,7 +59,7 @@ a {
                 </div>
                 <div class="carousel-item">
                     <RouterLink class="news-bg d-block w-100"
-                        style="background-image: url(/res/img/news/homeworkfinish.png);" to="/view?name=1.md">
+                        :style="`background-image: url(${root}/res/img/news/homeworkfinish.png);`" to="/view?name=1.md">
                         <div class="news-txt-box">
                             <div class="news-txt">
                                 <h1>
@@ -56,7 +73,7 @@ a {
                 </div>
                 <div class="carousel-item">
                     <div class="news-bg d-block w-100"
-                        style="background-image: url(/res/img/news/微信图片_20251001100626_83_43.jpg);">
+                        :style="`background-image: url(${root}/res/img/news/微信图片_20251001100626_83_43.jpg);`">
                         <div class="news-txt-box">
                             <div class="news-txt">
                                 <h1>“老母鸡变鸭了啊”</h1>
@@ -66,8 +83,8 @@ a {
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <RouterLink class="news-bg d-block w-100" style="background-image: url(/res/img/wechat.png);"
-                        to="/view?name=000wechat.md">
+                    <RouterLink class="news-bg d-block w-100"
+                        :style="`background-image: url(${root}/res/img/wechat.png);`" to="/view?name=000wechat.md">
                         <div class="news-txt-box">
                             <div class="news-txt">
                                 <h1>“一班报”</h1>
@@ -77,8 +94,7 @@ a {
                     </RouterLink>
                 </div>
                 <div class="carousel-item">
-                    <div class="news-bg d-block w-100"
-                        style="background-image: url(/res/img/news/springpool.jpg);">
+                    <div class="news-bg d-block w-100" style="background-image: url(/res/img/news/springpool.jpg);">
                         <div class="news-txt-box">
                             <div class="news-txt">
                                 <h1>“春池嫣韵”</h1>
@@ -102,19 +118,26 @@ a {
             <div class="row">
                 <div class="col-md-4">
                     <h3>热点新闻</h3>
-                    <ul class="list-group list-group-flush" id="recommend"></ul>
+                    <ul class="list-group list-group-flush">
+
+                    </ul>
                     <span class="h3">最新文章</span><small>
                         <RouterLink to="news">查看更多>></RouterLink>
                     </small>
-                    <ul class="list-group list-group-flush" id="articles"></ul>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" v-for="item in items">
+                            <RouterLink :to="`/View?name=news/${item.name}`">{{ item.title }}</RouterLink>
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-md-4">
-                    <span class="h3">最新周报</span><small>
+                    <span class="h3">最新周报</span>
+                    <small>
                         <RouterLink to="news">查看更多>></RouterLink>
                     </small>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <RouterLink to="pdf_/view#p={{id}}">周恩来周报 第{{ id }}期</RouterLink>
+                        <li class="list-group-item" v-for="id in list_zhoubao().reverse().slice(0, 5)">
+                            <RouterLink :to="`/view?pdf=${id}`">周恩来周报 第{{ id }}期</RouterLink>
                         </li>
                     </ul>
                     <span class="h3">随机作品</span><small>
@@ -147,6 +170,3 @@ a {
         <div style="clear: both"></div>
     </div>
 </template>
-<script lang="js">
-
-</script>

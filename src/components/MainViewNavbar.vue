@@ -1,5 +1,6 @@
 <script setup>
-    const props = defineProps(["title"])
+const props = defineProps(["title"])
+
 </script>
 
 <template>
@@ -37,15 +38,13 @@
                 </li>
             </ul>
             <div class="d-flex">
-                <a class="btn" data-bs-toggle="offcanvas" href="#offcanvas" role="button">
+                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
                     <span class="navbar-toggler-icon"></span>
-                </a>
+                </button>
             </div>
         </div>
     </nav>
-
-    <!-- Offcanvas -->
-    <div class="offcanvas offcanvas-start" id="offcanvas" tabindex="-1">
+    <div class="offcanvas offcanvas-end " id="offcanvas" tabindex="-1">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title">搜索</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>

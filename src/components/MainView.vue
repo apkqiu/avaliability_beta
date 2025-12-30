@@ -1,7 +1,7 @@
 <script setup lang="js">
 import { onMounted, useTemplateRef, ref } from "vue";
 import MainViewNavbar from "./MainViewNavbar.vue";
-import { hex2rgb, check } from "../utils";
+import { hex2rgb, check, root } from "../utils";
 import localforage from "localforage";
 import $ from "jquery";
 import Parallax from "parallax-js";
@@ -54,9 +54,9 @@ const update_style = (() => {
             });
             new Parallax(scene.value);
         } else {
-            $.get("/res/img/background/" + settings.imgbg + "/deepth.json").then(function (data) {
+            $.get(root+"/res/img/background/" + settings.imgbg + "/deepth.json").then(function (data) {
                 if (typeof data === 'string') {
-                    bg.value.src = "/res/img/background/" + settings.imgbg;
+                    bg.value.src = root+"/res/img/background/" + settings.imgbg;
                     new Parallax(scene.value);
                     return;
                 }
@@ -65,7 +65,7 @@ const update_style = (() => {
                 var img = data.img;
                 var layers = [];
                 for (var i = 0; i < layers_count; i++) {
-                    layers.push({ img: "/res/img/background/" + settings.imgbg + "/" + (i + 1) + ".png", deepth: data.deepth[i] });
+                    layers.push({ img: root+"/res/img/background/" + settings.imgbg + "/" + (i + 1) + ".png", deepth: data.deepth[i] });
                 }
                 $(scene.value).empty();
                 for (var i = 0; i < layers_count; i++) {
