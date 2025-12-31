@@ -1,7 +1,7 @@
 <script setup lang="js">
 import { onMounted, useTemplateRef, ref } from "vue";
 import MainViewNavbar from "./MainViewNavbar.vue";
-import { hex2rgb, check, root } from "../utils";
+import { hex2rgb, check, root, } from "../utils";
 import localforage from "localforage";
 import $ from "jquery";
 import Parallax from "parallax-js";
@@ -13,7 +13,6 @@ function load(name, fallback) {
     return fallback;
 }
 const scene = useTemplateRef("scene");
-const bg = useTemplateRef("bg");
 
 const bodybg = ref()
 const maskbg = ref()
@@ -28,7 +27,8 @@ const get_setting = () => {
         coloropacity: parseInt(load("coloropacity", "0")),
     }
 }
-let old_setting = {};
+let current_settings = ref({});
+let old_custom_img = "";
 const update_style = (() => {
     // 在onMounted中设置document.title，确保只在客户端执行
     document.title = props.title + " | 洽隐山房";
@@ -36,7 +36,7 @@ const update_style = (() => {
     let settings = get_setting();
     if (settings.mode === 'dark') {
         document.body.setAttribute("data-bs-theme", "dark");
-    }else{
+    } else {
         document.body.setAttribute("data-bs-theme", "light");
     }
     if (!settings.adv_bg) {
@@ -48,15 +48,29 @@ const update_style = (() => {
             maskbg.value = `rgba(0,0,0,${(100 - settings.bgbrightness) / 100})`
         }
         bodybg.value = `rgba(${hex2rgb(settings.color).join(',')},${settings.coloropacity / 100})`
-        if (settings.imgbg === 'custom') {
+        if (settings.imgbg.startsWith('custom')) {
+            
             localforage.getItem('imgbg').then(function (value) {
-                bg.value.src = value;
+                if(value === old_custom_img) return;
+                old_custom_img = value;
+                $(scene.value).empty();
+                var box = $(`<li class="layer" data-depth="0.4" style="height: 100%; width: 100%"></li>`)
+                var bg = $(`<img style="height: 100%; width: 100%; object-fit: cover"/>`)
+                bg.attr("src", value);
+                box.append(bg).appendTo(scene.value);
+
+                new Parallax(scene.value);
             });
-            new Parallax(scene.value);
-        } else {
-            $.get(root+"/res/img/background/" + settings.imgbg + "/deepth.json").then(function (data) {
+        } else if (settings.imgbg != current_settings.value.imgbg || settings.adv_bg != current_settings.value.adv_bg) {
+            // 判断变化(1)的原因：如果imgbg变化，则重新加载背景，重置Parallax效果会导致画面闪烁
+            // 判断变化(2)的原因：禁用高级背景会导致Parallax被删除，启用后需要重新加载
+            $.get(root + "/res/img/background/" + settings.imgbg + "/deepth.json").then(function (data) {
                 if (typeof data === 'string') {
-                    bg.value.src = root+"/res/img/background/" + settings.imgbg;
+                    $(scene.value).empty();
+                    var box = $(`<li class="layer" data-depth="0.4" style="height: 100%; width: 100%"></li>`)
+                    var bg = $(`<img style="height: 100%; width: 100%; object-fit: cover"/>`)
+                    bg.attr("src", root + "/res/img/background/" + settings.imgbg);
+                    box.append(bg).appendTo(scene.value);
                     new Parallax(scene.value);
                     return;
                 }
@@ -65,7 +79,7 @@ const update_style = (() => {
                 var img = data.img;
                 var layers = [];
                 for (var i = 0; i < layers_count; i++) {
-                    layers.push({ img: root+"/res/img/background/" + settings.imgbg + "/" + (i + 1) + ".png", deepth: data.deepth[i] });
+                    layers.push({ img: root + "/res/img/background/" + settings.imgbg + "/" + (i + 1) + ".png", deepth: data.deepth[i] });
                 }
                 $(scene.value).empty();
                 for (var i = 0; i < layers_count; i++) {
@@ -84,7 +98,7 @@ const update_style = (() => {
             })
         }
     }
-    old_setting = settings;
+    current_settings.value = settings;
 });
 onMounted(update_style);
 check(get_setting, update_style);
@@ -103,7 +117,7 @@ check(get_setting, update_style);
       height: 120vh;
       overflow: hidden;
       z-index: -10;
-    " v-if="load('adv_bg', 'true') === 'true'">
+    " v-if="current_settings.adv_bg">
         <ul style="height: 100%; width: 100%" ref="scene">
             <li class="layer" data-depth="0.4" style="height: 100%; width: 100%">
                 <img style="height: 100%; width: 100%; object-fit: cover" ref="bg" />
@@ -122,7 +136,7 @@ check(get_setting, update_style);
             <div class="text-sm text-muted" style="backdrop-filter: blur(10px)">
                 <small>
                     如果你要提供意见，请
-                    <a href="/contact.html">联系我们</a>
+                    <RouterLink to="/contact">联系我们</RouterLink>
                     <i>
                         <br />电话：13270463238 <br />邮箱:Caixukun11451489@outlook.com
                     </i>

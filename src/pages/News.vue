@@ -36,6 +36,7 @@ a {
 import { onMounted, ref } from 'vue';
 import { public_tree, getTitle, list_zhoubao } from '../utils';
 const items = ref([]);
+definePage({ meta: { title: "新闻" } })
 
 onMounted(async ()=>{
     const dir_items = public_tree.articles.news;

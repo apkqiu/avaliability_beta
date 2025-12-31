@@ -9,6 +9,7 @@ import { root } from "../utils.js"
 import { public_tree } from "../utils.js";
 import { list_zhoubao, getTitle } from "../utils.js";
 const items = ref([])
+definePage({  alias: ['/'],meta: { title: "首页" } })
 
 
 
@@ -26,7 +27,7 @@ onMounted(async () => {
                 <div class="carousel-item active">
                     <RouterLink class="news-bg d-block w-100"
                         :style="`background-image: url(${root}/res/img/ccnews/013.1.01.jpeg);`"
-                        to="/view?name=news013.1.md">
+                        to="/view?name=news/news013.1.md">
                         <div class="news-txt-box">
                             <div class="news-txt">
                                 <h1>传承中华体育魂</h1>
@@ -157,7 +158,7 @@ onMounted(async () => {
                             <p class="card-text">
                                 眼观六路耳听八方，在老师巡查中安然入睡。躲避干扰、抓紧补眠，你能睡过整堂课吗？
                             </p>
-                            <RouterLink to="game/ClassSleep.md" no-intercept="true" class="btn btn-primary">开始游戏
+                            <RouterLink to="games/ClassSleep" no-intercept="true" class="btn btn-primary">开始游戏
                             </RouterLink>
                         </div>
                     </div>

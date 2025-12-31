@@ -2,12 +2,12 @@
     <h1>设置</h1>
     <h4>个性化</h4>
     <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" :checked="load('adv_bg', 'true') === 'true'"
+        <input class="form-check-input" type="checkbox" role="switch" :checked="(current_valueset.adv_bg||load('adv_bg', 'true')) === 'true'"
             @change="save('adv_bg', $event.target.checked)" />
         <label class="form-check-label" for="adv_bg">高级背景</label>
     </div>
     <br />
-    <div class="mb-3 row" v-if="load('adv_bg', 'true') === 'false'">
+    <div class="mb-3 row" v-if="(current_valueset.adv_bg||load('adv_bg', 'true')) === 'false'">
         <label class="col-form-label col-sm-2" for="color">背景颜色</label>
         <div class="col-sm-10">
             <input class="form-control form-control-color" type="color" :value="load('color', '#000000')"
@@ -19,7 +19,7 @@
             <label class="col-form-label col-sm-2" for="bg">背景图片</label>
             <div class="col-sm-10">
                 <select class="form-select" @change="save('imgbg', $event.target.value)"
-                    :value="load('imgbg', 'bg-1.jpg')">
+                    :value="load('imgbg', 'bg-1.jpg').startsWith('custom')?'custom':load('imgbg', 'bg-1.jpg')">
                     <option disabled>学校</option>
                     <option value="SchoolGate.jpg">校门口</option>
                     <option value="bg.jpg">后花园</option>
@@ -34,20 +34,18 @@
                     <option disabled>自定义</option>
                     <option value="custom">自定义</option>
                 </select>
-                <input class="form-control" type="file" v-if="load('imgbg', '') === 'custom'" @change="
+                <input class="form-control" type="file" v-if="(current_valueset.imgbg||load('imgbg', '')).startsWith('custom')" @change="
                     upload($event.target);
-                save('imgbg', 'custom');
+                save('imgbg', 'custom'+new Date());
                 " accept="image/*" />
             </div>
         </div>
         <div class="mb-3 row">
             <label class="col-form-label col-sm-2" for="bgbrightness">背景亮度</label>
             <div class="col-sm-8">
-                <input type="range" class="form-range" min="0" max="200" step="1" :value="bgbrightness"
-                    @input="bgbrightness = $event.target.value" @change="
-                        save('bgbrightness', $event.target.value, false);
-                    save('dark', $event.target.value < 100);
-                    " />
+                <input type="range" class="form-range" min="0" max="200" step="1" :value="bgbrightness" @input="bgbrightness = $event.target.value; save('bgbrightness', $event.target.value, false);
+                save('dark', $event.target.value < 100);
+                " />
             </div>
             <div class="col-sm-2">
                 <span>{{ bgbrightness }}</span>
@@ -64,7 +62,7 @@
             <label class="col-form-label col-sm-2" for="bgbrightness">遮罩不透明度</label>
             <div class="col-sm-8">
                 <input type="range" class="form-range" min="0" max="100" step="1" :value="coloropacity"
-                    @input="coloropacity = $event.target.value" @change="save('coloropacity', $event.target.value)" />
+                    @input="coloropacity = $event.target.value; save('coloropacity', $event.target.value)" />
             </div>
             <div class="col-sm-2">
                 <span>{{ coloropacity }}</span>
@@ -81,20 +79,24 @@
     <RouterLink to="/" class="btn btn-primary">返回</RouterLink>
 </template>
 <script setup>
-import { onMounted,  ref } from "vue";
+import { onMounted, ref } from "vue";
 import localforage from "localforage";
+definePage({ meta: { title: "设置" } })
+
 function load(key, fallback) {
-    return localStorage.getItem(key) || fallback;
+    return current_valueset.value[key] = localStorage.getItem(key) || fallback;
 }
 const bgbrightness = ref();
 const coloropacity = ref();
+const current_valueset = ref({});
+
 onMounted(() => {
     bgbrightness.value = load("bgbrightness", "50");
     coloropacity.value = load("coloropacity", "0.5");
 });
 function save(name, value, reload = true) {
-    localStorage.setItem(name, value);
-    
+    current_valueset.value[name] = localStorage.setItem(name, value);
+
 }
 function upload(input) {
     if (input.files && input.files[0]) {

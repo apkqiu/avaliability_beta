@@ -156,3 +156,13 @@ export function list_zhoubao(){
     })
     return ret
 }
+
+export const LocalStorage = new Proxy({}, {
+    get: function (target, key) {
+        return localStorage.getItem(key)
+    },
+    set: function (target, key, value) {
+        localStorage.setItem(key, value)
+        return true
+    }
+})

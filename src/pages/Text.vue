@@ -11,6 +11,10 @@ a {
     height: 3em;
 }
 </style>
+<script setup>
+    definePage({ meta: { title: "学生创作" } })
+
+</script>
 <template>
     <div id="students_text"></div>
     <div class="row">

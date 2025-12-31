@@ -1,6 +1,14 @@
 <script setup>
 const props = defineProps(["title"])
-
+const urls = {
+    "首页":"/",
+    "新闻":"/news",
+    "文学创作": "/text",
+    "自制网页": "/web_maker",
+    "设置": "/settings",
+    "小游戏": "/games",
+    "资料库": "/resource",
+}
 </script>
 
 <template>
@@ -15,30 +23,12 @@ const props = defineProps(["title"])
         <div class="container-fluid">
             <span>{{ props.title }}</span>
             <ul class="navbar-nav me-auto hide_on_mobile">
-                <li class="nav-item">
-                    <RouterLink class="nav-link" to="/">首页</RouterLink>
-                </li>
-                <li class="nav-item">
-                    <RouterLink class="nav-link" to="/news">新闻</RouterLink>
-                </li>
-                <li class="nav-item">
-                    <RouterLink class="nav-link" to="/text">文学创作</RouterLink>
-                </li>
-                <li class="nav-item">
-                    <RouterLink class="nav-link" to="/web_maker">自制网页</RouterLink>
-                </li>
-                <li class="nav-item">
-                    <RouterLink class="nav-link" to="/account">设置</RouterLink>
-                </li>
-                <li class="nav-item">
-                    <RouterLink class="nav-link" to="/game">小游戏</RouterLink>
-                </li>
-                <li class="nav-item">
-                    <RouterLink class="nav-link" to="/resource">资料库</RouterLink>
+                <li class="nav-item" v-for="name in Object.keys(urls)">
+                    <RouterLink class="nav-link" :to="urls[name]">{{name}}</RouterLink>
                 </li>
             </ul>
             <div class="d-flex">
-                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
+                <button class="btn" type="button" @click="new bootstrap.Offcanvas('#offcanvas').show()">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
@@ -52,13 +42,7 @@ const props = defineProps(["title"])
         <div class="offcanvas-body">
             <h3>导航</h3>
             <div class="list-group">
-                <RouterLink class="list-group-item" to="/">首页</RouterLink>
-                <RouterLink class="list-group-item" to="/text">文学创作</RouterLink>
-                <RouterLink class="list-group-item" to="/web_maker">自制网页</RouterLink>
-                <RouterLink class="list-group-item" to="/account">设置</RouterLink>
-                <RouterLink class="list-group-item" to="/news">新闻</RouterLink>
-                <RouterLink class="list-group-item" to="/game">小游戏</RouterLink>
-                <RouterLink class="list-group-item" to="/resource">资料库</RouterLink>
+                <RouterLink class="list-group-item" v-for="name in Object.keys(urls)" :to="urls[name]">{{name}}</RouterLink>
             </div>
             <br />
             <h3>搜索</h3>
