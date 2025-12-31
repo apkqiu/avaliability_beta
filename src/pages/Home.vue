@@ -8,6 +8,7 @@ import { onMounted, ref } from "vue";
 import { root } from "../utils.js"
 import { public_tree } from "../utils.js";
 import { list_zhoubao, getTitle } from "../utils.js";
+import Reserved from "../components/Reserved.vue";
 const items = ref([])
 definePage({  alias: ['/'],meta: { title: "首页" } })
 
@@ -21,6 +22,7 @@ onMounted(async () => {
 })
 </script>
 <template>
+    <Reserved hasnew="true" old="/"/>
     <div>
         <div id="carousel" class="carousel slide h-100" style="backdrop-filter: blur(20px)">
             <div class="carousel-inner">

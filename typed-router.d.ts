@@ -44,6 +44,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/Games/MineSweeper': RouteRecordInfo<
+      '/Games/MineSweeper',
+      '/Games/MineSweeper',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/Home': RouteRecordInfo<
       '/Home',
       '/Home',
@@ -65,6 +72,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/Resource': RouteRecordInfo<
+      '/Resource',
+      '/Resource',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/Settings': RouteRecordInfo<
       '/Settings',
       '/Settings',
@@ -82,6 +96,13 @@ declare module 'vue-router/auto-routes' {
     '/View': RouteRecordInfo<
       '/View',
       '/View',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/WebMaker': RouteRecordInfo<
+      '/WebMaker',
+      '/WebMaker',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -117,6 +138,12 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/Games/MineSweeper.vue': {
+      routes:
+        | '/Games/MineSweeper'
+      views:
+        | never
+    }
     'src/pages/Home.vue': {
       routes:
         | '/Home'
@@ -135,6 +162,12 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/Resource.vue': {
+      routes:
+        | '/Resource'
+      views:
+        | never
+    }
     'src/pages/Settings.vue': {
       routes:
         | '/Settings'
@@ -150,6 +183,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/View.vue': {
       routes:
         | '/View'
+      views:
+        | never
+    }
+    'src/pages/WebMaker.vue': {
+      routes:
+        | '/WebMaker'
       views:
         | never
     }

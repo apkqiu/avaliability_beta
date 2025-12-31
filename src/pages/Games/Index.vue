@@ -25,7 +25,7 @@ definePage({
                 <div class="card-body">
                     <h5 class="card-title">扫雷</h5>
                     <p class="card-text">经典数字逻辑挑战！ 在方格阵中推理排雷，步步惊心。用智慧避开陷阱，揭开所有安全格。烧脑又刺激，挑战经典扫雷！</p>
-                    <a href="#" no-intercept="true" class="btn btn-primary">开始游戏</a>
+                    <RouterLink to="/Games/MineSweeper" class="btn btn-primary">开始游戏</RouterLink>
                 </div>
             </div>
         </div>

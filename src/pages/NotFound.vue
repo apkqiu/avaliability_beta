@@ -1,4 +1,4 @@
-<script setup lang="js">
+<script setup>
 import { randbetween } from '../utils.js';
 import {ref} from 'vue';
 defineProps(["url"]);
@@ -34,8 +34,9 @@ function change_saying(event){
 </script>
 <template>
   <div class="not-found">
-    <h1>404</h1>
-    <p><strong>文件不存在</strong></p>
+    <span class="h1">404</span>
+    &nbsp;
+    <strong>文件不存在</strong>
 
     <p>
       在此地址配置的站点不包含请求的文件。

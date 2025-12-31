@@ -12,10 +12,12 @@ a {
 }
 </style>
 <script setup>
+    import Reserved from '../components/Reserved.vue'
     definePage({ meta: { title: "学生创作" } })
 
 </script>
 <template>
+    <Reserved hasnew="true" old="/text"/>
     <div id="students_text"></div>
     <div class="row">
         <div class="col-md-6">

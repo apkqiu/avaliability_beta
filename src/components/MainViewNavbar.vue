@@ -4,7 +4,7 @@ const urls = {
     "首页":"/",
     "新闻":"/news",
     "文学创作": "/text",
-    "自制网页": "/web_maker",
+    "自制网页": "/webmaker",
     "设置": "/settings",
     "小游戏": "/games",
     "资料库": "/resource",

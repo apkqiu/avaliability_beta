@@ -1,23 +1,27 @@
 <script setup lang="ts">
 import MainView from './components/MainView.vue';
 import { RouterView } from 'vue-router';
-import { ref } from 'vue';
-const key = ref( Number.MIN_SAFE_INTEGER)
+import { ref, signal, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+import { onBeforeRouteLeave, onBeforeRouteUpdate } from 'vue-router';
+const key = ref(Number.MIN_SAFE_INTEGER)
 const ikey = ref(Number.MIN_SAFE_INTEGER)
-
+onMounted(async()=>{
+  await import("bootstrap") // 为什么呢？
+})
 </script>
 
 <template>
   <client-only>
-  <RouterView v-slot="{ Component, route }" >
-    <component :is="route.meta.view||MainView" :title="route.meta.title||route.name" :key="key">
-      <Transition mode="out-in">
-        <div :key="route.fullPath+ikey">
-          <component :is="Component" />
-        </div>
-      </Transition>
-    </component>
-  </RouterView>
+    <RouterView v-slot="{ Component, route }">
+      <component :is="route.meta.view || MainView" :title="route.meta.title || route.name" :key="key">
+        <Transition mode="out-in">
+          <div :key="route.fullPath + ikey">
+            <component :is="Component" />
+          </div>
+        </Transition>
+      </component>
+    </RouterView>
   </client-only>
 </template>
 

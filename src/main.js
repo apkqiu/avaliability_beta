@@ -8,7 +8,7 @@ import NotFound from '@/pages/NotFound.vue'
 import { ViteSSG } from 'vite-ssg'
 import { routes } from 'vue-router/auto-routes'
 // merge routes
-const base= "/avaliability_beta";
+const base = "/avaliability_beta";
 var routercfg = {
     base,
     routes
@@ -21,5 +21,8 @@ export const createApp = ViteSSG(App,
     routercfg,
     ({ app, router, routes, isClient, initialState }) => {
         //app.use(router)
+        router.beforeResolve(async (to) => {
+            
+        });
     }
 )
