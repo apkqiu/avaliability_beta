@@ -3,7 +3,10 @@
   "\u0000/home/runner/work/avaliability_beta/avaliability_beta/node_modules/jquery/dist/jquery.js?commonjs-module": [],
   "\u0000/home/runner/work/avaliability_beta/avaliability_beta/node_modules/localforage/dist/localforage.js?commonjs-es-import": [],
   "\u0000/home/runner/work/avaliability_beta/avaliability_beta/node_modules/localforage/dist/localforage.js?commonjs-module": [],
-  "\u0000/home/runner/work/avaliability_beta/avaliability_beta/node_modules/markdown-it-quote/dist/markdown-it-quote.cjs.js?commonjs-es-import": [],
+  "\u0000/home/runner/work/avaliability_beta/avaliability_beta/node_modules/markdown-it-quote/dist/markdown-it-quote.cjs.js?commonjs-es-import": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
   "\u0000/home/runner/work/avaliability_beta/avaliability_beta/node_modules/parallax-js/dist/parallax.js?commonjs-es-import": [],
   "\u0000/home/runner/work/avaliability_beta/avaliability_beta/node_modules/parallax-js/dist/parallax.js?commonjs-module": [],
   "\u0000commonjs-dynamic-modules": [],
@@ -12,16 +15,205 @@
   "\u0000vite/modulepreload-polyfill.js": [],
   "\u0000vite/preload-helper.js": [],
   "\u0000vue-router/auto-routes": [],
+  "../../../../../res/img/loading.gif": [
+    "/avaliability_beta/assets/ClassSleep-DJWljr-P.js",
+    "/avaliability_beta/assets/ClassSleep-oCqZcXi4.css"
+  ],
   "index.html": [],
   "node_modules/@giscus/vue/dist/giscus-Ci9LqPcC.js": [
     "/avaliability_beta/assets/giscus-Ci9LqPcC-BPnMVyiD.js"
   ],
-  "node_modules/@giscus/vue/dist/index.js": [],
-  "node_modules/@mdit/plugin-align/lib/index.js": [],
-  "node_modules/@mdit/plugin-attrs/lib/index.js": [],
-  "node_modules/@mdit/plugin-container/lib/index.js": [],
-  "node_modules/@mdit/plugin-footnote/lib/index.js": [],
-  "node_modules/@mdit/plugin-ins/lib/index.js": [],
+  "node_modules/@giscus/vue/dist/index.js": [
+    "/avaliability_beta/assets/Comments-DhNwQjfQ.js"
+  ],
+  "node_modules/@mdit/plugin-align/lib/index.js": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/@mdit/plugin-attrs/lib/index.js": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/@mdit/plugin-container/lib/index.js": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/@mdit/plugin-footnote/lib/index.js": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/@mdit/plugin-ins/lib/index.js": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/@popperjs/core/lib/createPopper.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/contains.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getClippingRect.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getCompositeRect.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getComputedStyle.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getDocumentRect.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getHTMLElementScroll.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getLayoutRect.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getNodeName.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getNodeScroll.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getOffsetParent.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getParentNode.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getScrollParent.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getViewportRect.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getWindow.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getWindowScroll.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getWindowScrollBarX.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/instanceOf.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/isLayoutViewport.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/isScrollParent.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/isTableElement.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/listScrollParents.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/enums.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/index.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/applyStyles.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/arrow.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/computeStyles.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/eventListeners.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/flip.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/hide.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/offset.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/popperOffsets.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/preventOverflow.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/popper-lite.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/popper.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/computeAutoPlacement.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/computeOffsets.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/debounce.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/detectOverflow.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/expandToHashMap.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/getAltAxis.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/getBasePlacement.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/getFreshSideObject.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/getMainAxisFromPlacement.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/getOppositePlacement.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/getOppositeVariationPlacement.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/getVariation.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/math.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/mergeByName.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/mergePaddingObject.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/orderModifiers.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/rectToClientRect.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/userAgent.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/within.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
   "node_modules/@unhead/vue/dist/client.mjs": [],
   "node_modules/@unhead/vue/dist/shared/vue.Bm-NbY4b.mjs": [],
   "node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js": [],
@@ -78,90 +270,310 @@
   "node_modules/axios/lib/platform/common/utils.js": [],
   "node_modules/axios/lib/platform/index.js": [],
   "node_modules/axios/lib/utils.js": [],
+  "node_modules/bootstrap/dist/js/bootstrap.esm.js": [
+    "/avaliability_beta/assets/bootstrap.esm--3AG11oG.js"
+  ],
   "node_modules/hookable/dist/index.mjs": [],
   "node_modules/jquery/dist/jquery.js": [],
-  "node_modules/linkify-it/index.mjs": [],
-  "node_modules/linkify-it/lib/re.mjs": [],
+  "node_modules/linkify-it/index.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/linkify-it/lib/re.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
   "node_modules/localforage/dist/localforage.js": [],
-  "node_modules/markdown-it-quote/dist/markdown-it-quote.cjs.js": [],
-  "node_modules/markdown-it/lib/common/html_blocks.mjs": [],
-  "node_modules/markdown-it/lib/common/html_re.mjs": [],
-  "node_modules/markdown-it/lib/common/utils.mjs": [],
-  "node_modules/markdown-it/lib/helpers/index.mjs": [],
-  "node_modules/markdown-it/lib/helpers/parse_link_destination.mjs": [],
-  "node_modules/markdown-it/lib/helpers/parse_link_label.mjs": [],
-  "node_modules/markdown-it/lib/helpers/parse_link_title.mjs": [],
-  "node_modules/markdown-it/lib/index.mjs": [],
-  "node_modules/markdown-it/lib/parser_block.mjs": [],
-  "node_modules/markdown-it/lib/parser_core.mjs": [],
-  "node_modules/markdown-it/lib/parser_inline.mjs": [],
-  "node_modules/markdown-it/lib/presets/commonmark.mjs": [],
-  "node_modules/markdown-it/lib/presets/default.mjs": [],
-  "node_modules/markdown-it/lib/presets/zero.mjs": [],
-  "node_modules/markdown-it/lib/renderer.mjs": [],
-  "node_modules/markdown-it/lib/ruler.mjs": [],
-  "node_modules/markdown-it/lib/rules_block/blockquote.mjs": [],
-  "node_modules/markdown-it/lib/rules_block/code.mjs": [],
-  "node_modules/markdown-it/lib/rules_block/fence.mjs": [],
-  "node_modules/markdown-it/lib/rules_block/heading.mjs": [],
-  "node_modules/markdown-it/lib/rules_block/hr.mjs": [],
-  "node_modules/markdown-it/lib/rules_block/html_block.mjs": [],
-  "node_modules/markdown-it/lib/rules_block/lheading.mjs": [],
-  "node_modules/markdown-it/lib/rules_block/list.mjs": [],
-  "node_modules/markdown-it/lib/rules_block/paragraph.mjs": [],
-  "node_modules/markdown-it/lib/rules_block/reference.mjs": [],
-  "node_modules/markdown-it/lib/rules_block/state_block.mjs": [],
-  "node_modules/markdown-it/lib/rules_block/table.mjs": [],
-  "node_modules/markdown-it/lib/rules_core/block.mjs": [],
-  "node_modules/markdown-it/lib/rules_core/inline.mjs": [],
-  "node_modules/markdown-it/lib/rules_core/linkify.mjs": [],
-  "node_modules/markdown-it/lib/rules_core/normalize.mjs": [],
-  "node_modules/markdown-it/lib/rules_core/replacements.mjs": [],
-  "node_modules/markdown-it/lib/rules_core/smartquotes.mjs": [],
-  "node_modules/markdown-it/lib/rules_core/state_core.mjs": [],
-  "node_modules/markdown-it/lib/rules_core/text_join.mjs": [],
-  "node_modules/markdown-it/lib/rules_inline/autolink.mjs": [],
-  "node_modules/markdown-it/lib/rules_inline/backticks.mjs": [],
-  "node_modules/markdown-it/lib/rules_inline/balance_pairs.mjs": [],
-  "node_modules/markdown-it/lib/rules_inline/emphasis.mjs": [],
-  "node_modules/markdown-it/lib/rules_inline/entity.mjs": [],
-  "node_modules/markdown-it/lib/rules_inline/escape.mjs": [],
-  "node_modules/markdown-it/lib/rules_inline/fragments_join.mjs": [],
-  "node_modules/markdown-it/lib/rules_inline/html_inline.mjs": [],
-  "node_modules/markdown-it/lib/rules_inline/image.mjs": [],
-  "node_modules/markdown-it/lib/rules_inline/link.mjs": [],
-  "node_modules/markdown-it/lib/rules_inline/linkify.mjs": [],
-  "node_modules/markdown-it/lib/rules_inline/newline.mjs": [],
-  "node_modules/markdown-it/lib/rules_inline/state_inline.mjs": [],
-  "node_modules/markdown-it/lib/rules_inline/strikethrough.mjs": [],
-  "node_modules/markdown-it/lib/rules_inline/text.mjs": [],
-  "node_modules/markdown-it/lib/token.mjs": [],
-  "node_modules/markdown-it/node_modules/entities/lib/esm/decode.js": [],
-  "node_modules/markdown-it/node_modules/entities/lib/esm/decode_codepoint.js": [],
-  "node_modules/markdown-it/node_modules/entities/lib/esm/generated/decode-data-html.js": [],
-  "node_modules/markdown-it/node_modules/entities/lib/esm/generated/decode-data-xml.js": [],
-  "node_modules/mdurl/index.mjs": [],
-  "node_modules/mdurl/lib/decode.mjs": [],
-  "node_modules/mdurl/lib/encode.mjs": [],
-  "node_modules/mdurl/lib/format.mjs": [],
-  "node_modules/mdurl/lib/parse.mjs": [],
+  "node_modules/markdown-it-quote/dist/markdown-it-quote.cjs.js": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/common/html_blocks.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/common/html_re.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/common/utils.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/helpers/index.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/helpers/parse_link_destination.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/helpers/parse_link_label.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/helpers/parse_link_title.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/index.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/parser_block.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/parser_core.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/parser_inline.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/presets/commonmark.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/presets/default.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/presets/zero.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/renderer.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/ruler.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/blockquote.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/code.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/fence.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/heading.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/hr.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/html_block.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/lheading.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/list.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/paragraph.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/reference.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/state_block.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_block/table.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_core/block.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_core/inline.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_core/linkify.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_core/normalize.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_core/replacements.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_core/smartquotes.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_core/state_core.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_core/text_join.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/autolink.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/backticks.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/balance_pairs.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/emphasis.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/entity.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/escape.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/fragments_join.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/html_inline.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/image.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/link.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/linkify.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/newline.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/state_inline.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/strikethrough.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/rules_inline/text.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/lib/token.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/node_modules/entities/lib/esm/decode.js": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/node_modules/entities/lib/esm/decode_codepoint.js": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/node_modules/entities/lib/esm/generated/decode-data-html.js": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/markdown-it/node_modules/entities/lib/esm/generated/decode-data-xml.js": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/mdurl/index.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/mdurl/lib/decode.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/mdurl/lib/encode.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/mdurl/lib/format.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/mdurl/lib/parse.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
   "node_modules/parallax-js/dist/parallax.js": [],
   "node_modules/pdfjs-dist/build/pdf.mjs": [
     "/avaliability_beta/assets/pdf-CdE6nnZT.js"
   ],
-  "node_modules/punycode.js/punycode.es6.js": [],
-  "node_modules/uc.micro/categories/Cc/regex.mjs": [],
-  "node_modules/uc.micro/categories/Cf/regex.mjs": [],
-  "node_modules/uc.micro/categories/P/regex.mjs": [],
-  "node_modules/uc.micro/categories/S/regex.mjs": [],
-  "node_modules/uc.micro/categories/Z/regex.mjs": [],
-  "node_modules/uc.micro/index.mjs": [],
-  "node_modules/uc.micro/properties/Any/regex.mjs": [],
+  "node_modules/punycode.js/punycode.es6.js": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/uc.micro/categories/Cc/regex.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/uc.micro/categories/Cf/regex.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/uc.micro/categories/P/regex.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/uc.micro/categories/S/regex.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/uc.micro/categories/Z/regex.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/uc.micro/index.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "node_modules/uc.micro/properties/Any/regex.mjs": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
   "node_modules/unhead/dist/client.mjs": [],
   "node_modules/unhead/dist/shared/unhead.CGCfDSEL.mjs": [],
   "node_modules/unhead/dist/shared/unhead.CYpwL2hc.mjs": [],
   "node_modules/unhead/dist/shared/unhead.CbpEuj3y.mjs": [],
   "node_modules/unhead/dist/shared/unhead.yem5I2v_.mjs": [],
+  "node_modules/unplugin-vue-router/dist/runtime.mjs": [],
   "node_modules/vite-ssg/dist/index.mjs": [],
   "node_modules/vite-ssg/dist/shared/vite-ssg.C6pK7rvr.mjs": [],
   "node_modules/vite-ssg/dist/shared/vite-ssg.ETIvV-80.mjs": [],
@@ -169,24 +581,79 @@
   "node_modules/vue-router/dist/vue-router.mjs": [],
   "src/App.vue": [],
   "src/App.vue?vue&type=script&setup=true&lang.ts": [],
-  "src/App.vue?vue&type=style&index=0&scoped=88ff7989&lang.css": [],
-  "src/components/Comments.vue": [],
+  "src/App.vue?vue&type=style&index=0&scoped=74897828&lang.css": [],
+  "src/components/Comments.vue": [
+    "/avaliability_beta/assets/Comments-DhNwQjfQ.js"
+  ],
   "src/components/MainView.vue": [],
   "src/components/MainViewNavbar.vue": [],
-  "src/lib/PdfRenderer.js": [],
+  "src/lib/PdfRenderer.js": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
   "src/main.js": [],
-  "src/pages/Home.vue": [],
-  "src/pages/Home.vue?vue&type=style&index=0&scoped=5a8ac7c5&lang.css": [],
-  "src/pages/News.vue": [],
-  "src/pages/News.vue?vue&type=style&index=0&scoped=8f2da5c0&lang.css": [],
+  "src/pages/Contact.vue": [
+    "/avaliability_beta/assets/Contact-HM5XwHYJ.js"
+  ],
+  "src/pages/Contact.vue?definePage&vue&lang.tsx": [],
+  "src/pages/Games/ClassSleep.vue": [
+    "/avaliability_beta/assets/ClassSleep-DJWljr-P.js",
+    "/avaliability_beta/assets/ClassSleep-oCqZcXi4.css"
+  ],
+  "src/pages/Games/ClassSleep.vue?definePage&vue&lang.tsx": [],
+  "src/pages/Games/ClassSleep.vue?vue&type=style&index=0&scoped=36fb12d6&lang.css": [
+    "/avaliability_beta/assets/ClassSleep-DJWljr-P.js",
+    "/avaliability_beta/assets/ClassSleep-oCqZcXi4.css"
+  ],
+  "src/pages/Games/Index.vue": [
+    "/avaliability_beta/assets/Index-CLz5vMRt.js"
+  ],
+  "src/pages/Games/Index.vue?definePage&vue&lang.tsx": [],
+  "src/pages/Home.vue": [
+    "/avaliability_beta/assets/Home-DymcREYp.js",
+    "/avaliability_beta/assets/Home-CFznbATT.css"
+  ],
+  "src/pages/Home.vue?definePage&vue&lang.tsx": [],
+  "src/pages/Home.vue?vue&type=style&index=0&scoped=37c82abc&lang.css": [
+    "/avaliability_beta/assets/Home-DymcREYp.js",
+    "/avaliability_beta/assets/Home-CFznbATT.css"
+  ],
+  "src/pages/News.vue": [
+    "/avaliability_beta/assets/News-WmjxL6Rl.js",
+    "/avaliability_beta/assets/News-8C0-oyjf.css"
+  ],
+  "src/pages/News.vue?definePage&vue&lang.tsx": [],
+  "src/pages/News.vue?vue&type=style&index=0&scoped=55643593&lang.css": [
+    "/avaliability_beta/assets/News-WmjxL6Rl.js",
+    "/avaliability_beta/assets/News-8C0-oyjf.css"
+  ],
   "src/pages/NotFound.vue": [],
-  "src/pages/Settings.vue": [],
-  "src/pages/Text.vue": [],
-  "src/pages/Text.vue?vue&type=style&index=0&scoped=6f6140c1&lang.css": [],
-  "src/pages/View.vue": [],
-  "src/pages/View.vue?vue&type=script&setup=true&lang.jsx": [],
-  "src/pages/View.vue?vue&type=style&index=0&scoped=f7393c3d&lang.css": [],
-  "src/router.ts": [],
+  "src/pages/Settings.vue": [
+    "/avaliability_beta/assets/Settings-WRNDKWRs.js"
+  ],
+  "src/pages/Settings.vue?definePage&vue&lang.tsx": [],
+  "src/pages/Text.vue": [
+    "/avaliability_beta/assets/Text-DBhKAboj.js",
+    "/avaliability_beta/assets/Text-C-Ex5lPt.css"
+  ],
+  "src/pages/Text.vue?definePage&vue&lang.tsx": [],
+  "src/pages/Text.vue?vue&type=style&index=0&scoped=f959fa8d&lang.css": [
+    "/avaliability_beta/assets/Text-DBhKAboj.js",
+    "/avaliability_beta/assets/Text-C-Ex5lPt.css"
+  ],
+  "src/pages/View.vue": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "src/pages/View.vue?definePage&vue&lang.tsx": [],
+  "src/pages/View.vue?vue&type=script&setup=true&lang.jsx": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
+  "src/pages/View.vue?vue&type=style&index=0&scoped=a545d96a&lang.css": [
+    "/avaliability_beta/assets/View-SUYlvkHp.js",
+    "/avaliability_beta/assets/View-b1mFytnO.css"
+  ],
   "src/style/bootstrap.scss": [],
   "src/style/utils.css": [],
   "src/utils.js": []
