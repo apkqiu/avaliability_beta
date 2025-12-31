@@ -1,0 +1,1 @@
+import{R as e}from"./Reserved-Bboy4pZ9.js";import{h as o,i as r,o as a}from"./app-gSp-0aX6.js";const m=o({__name:"WebMaker",setup(t){return(s,n)=>(a(),r(e,{old:"/web_maker"}))}});export{m as default};

@@ -1,0 +1,1 @@
+import{R as e}from"./Reserved-Bboy4pZ9.js";import{h as o,i as r,o as a}from"./app-gSp-0aX6.js";const c=o({__name:"MineSweeper",setup(t){return(n,s)=>(a(),r(e,{old:"/game/SaoLei.html"}))}});export{c as default};
