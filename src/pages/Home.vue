@@ -5,106 +5,65 @@ a {
 </style>
 <script setup>
 import { onMounted, ref } from "vue";
-import { root } from "../utils.js"
-import { public_tree } from "../utils.js";
-import { list_zhoubao, getTitle } from "../utils.js";
-import Reserved from "../components/Reserved.vue";
-const items = ref([])
-definePage({  alias: ['/'],meta: { title: "首页" } })
+import { WebDocument, WebFile } from "../utils.js";
+import { url } from "../csshelper.js"
+import { popular } from "../web_data.js";
+
+const items = ref([]);
+const carousel_items = ref([])
 
 
+definePage({ alias: ['/'], meta: { title: "首页" } })
 
 onMounted(async () => {
-    const dir_items = public_tree.articles.news;
-    for (let key in dir_items) {
-        items.value.push({name:key,title:await getTitle(dir_items[key])});
+    carousel_items.value = [
+        {
+            image: WebFile.root+"/res/img/ccnews/013.1.01.jpeg",
+            link: "/view?name=news/news013.1.md",
+            title: "传承中华体育魂",
+            source: "运动会快讯",
+        },
+        {
+            image: WebFile.root+"/res/img/news/birdinclass.png",
+            link: "/view?pdf=11",
+            title: "震惊！我教室飞鸟",
+            source: "《周恩来周报 第十一期》"
+        },
+        {
+            image: WebFile.root+"/res/img/news/微信图片_20251001100626_83_43.jpg",
+            title: "“老母鸡变鸭了啊”",
+            source: "——顾晓雯 | 名人名言"
+        },
+        {
+            image: WebFile.root+"/res/img/wechat.png",
+            link: "/view?name=news/0000.00.01.md",
+            title: "“一班报”",
+            source: "微信公众号"
+
+        }
+    ]
+    carousel_items.value[0].active = true;
+    if (items.value.length == 0) {
+        const dir_items = WebFile.public.articles.news;
+        for (let key in dir_items) {
+            items.value.push({ name: key, title: await new WebDocument(dir_items[key]).getTitle() });
+        }
     }
 })
 </script>
 <template>
-    <Reserved hasnew="true" old="/"/>
     <div>
         <div id="carousel" class="carousel slide h-100" style="backdrop-filter: blur(20px)">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <RouterLink class="news-bg d-block w-100"
-                        :style="`background-image: url(${root}/res/img/ccnews/013.1.01.jpeg);`"
-                        to="/view?name=news/news013.1.md">
+                <div class="carousel-item" :class="{'active':active}" v-for="{ image, link, title, source, active } in carousel_items">
+                    <RouterLink class="news-bg d-block w-100" :style="{ 'background-image': url(typeof image==='string'?image:image.default) }" :to="link||''">
                         <div class="news-txt-box">
                             <div class="news-txt">
-                                <h1>传承中华体育魂</h1>
-                                <p>运动会快讯</p>
+                                <h1>{{ title }}</h1>
+                                <p>{{ source }}</p>
                             </div>
                         </div>
                     </RouterLink>
-                </div>
-                <div class="carousel-item">
-                    <RouterLink class="news-bg d-block w-100"
-                        :style="`background-image: url(${root}/res/img/news/birdinclass.png);`" to="pdf_/view#p=11">
-                        <div class="news-txt-box">
-                            <div class="news-txt">
-                                <h1>震惊！我教室飞鸟</h1>
-                                <p>《周恩来周报 第十一期》</p>
-                            </div>
-                        </div>
-                    </RouterLink>
-                </div>
-                <div class="carousel-item">
-                    <div class="news-bg d-block w-100"
-                        :style="`background-image: url(${root}/res/img/news/9clock_withsun.png);`">
-                        <div class="news-txt-box">
-                            <div class="news-txt">
-                                <h1>“九点钟出太阳”</h1>
-                                <p>——俞梓涵 | 名人名言</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <RouterLink class="news-bg d-block w-100"
-                        :style="`background-image: url(${root}/res/img/news/homeworkfinish.png);`" to="/view?name=1.md">
-                        <div class="news-txt-box">
-                            <div class="news-txt">
-                                <h1>
-                                    我的一小步，暑假的一大步
-                                    <small>——我学生胜利完成本周暑假作业</small>
-                                </h1>
-                                <p>近期热点</p>
-                            </div>
-                        </div>
-                    </RouterLink>
-                </div>
-                <div class="carousel-item">
-                    <div class="news-bg d-block w-100"
-                        :style="`background-image: url(${root}/res/img/news/微信图片_20251001100626_83_43.jpg);`">
-                        <div class="news-txt-box">
-                            <div class="news-txt">
-                                <h1>“老母鸡变鸭了啊”</h1>
-                                <p>——顾晓雯 | 名人名言</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <RouterLink class="news-bg d-block w-100"
-                        :style="`background-image: url(${root}/res/img/wechat.png);`" to="/view?name=000wechat.md">
-                        <div class="news-txt-box">
-                            <div class="news-txt">
-                                <h1>“一班报”</h1>
-                                <p>微信公众号</p>
-                            </div>
-                        </div>
-                    </RouterLink>
-                </div>
-                <div class="carousel-item">
-                    <div class="news-bg d-block w-100" style="background-image: url(/res/img/news/springpool.jpg);">
-                        <div class="news-txt-box">
-                            <div class="news-txt">
-                                <h1>“春池嫣韵”</h1>
-                                <p>——李军昊 | 书法</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
@@ -122,7 +81,9 @@ onMounted(async () => {
                 <div class="col-md-4">
                     <h3>热点新闻</h3>
                     <ul class="list-group list-group-flush">
-
+                        <li class="list-group-item" v-for="name in Object.keys(popular)">
+                            <RouterLink :to="`/View?name=${popular[name]}`" v-html="name"></RouterLink>
+                        </li>
                     </ul>
                     <span class="h3">最新文章</span><small>
                         <RouterLink to="news">查看更多>></RouterLink>
@@ -139,18 +100,21 @@ onMounted(async () => {
                         <RouterLink to="news">查看更多>></RouterLink>
                     </small>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item" v-for="id in list_zhoubao().reverse().slice(0, 5)">
+                        <li class="list-group-item"
+                            v-for="id in Object.keys(WebFile.public.res.pdf).map((s)=>parseFloat(s.substring(7, s.length-4))).sort((a,b)=>b-a).slice(0,5)">
                             <RouterLink :to="`/view?pdf=${id}`">周恩来周报 第{{ id }}期</RouterLink>
                         </li>
                     </ul>
                     <span class="h3">随机作品</span><small>
                         <RouterLink to="text">查看更多>></RouterLink>
                     </small>
-                    <ul class="list-group list-group-flush" id="students_text"></ul>
+                    <ul class="list-group list-group-flush" id="students_text">
+                        <p>没有配置。</p>
+                    </ul>
                 </div>
                 <div class="col-md-4">
                     <span class="h3">热门游戏</span><small>
-                        <RouterLink to="game">查看更多>></RouterLink>
+                        <RouterLink to="apps">查看更多>></RouterLink>
                     </small>
                     <div class="card mb-3 w-100">
                         <div class="card-body">
@@ -160,7 +124,7 @@ onMounted(async () => {
                             <p class="card-text">
                                 眼观六路耳听八方，在老师巡查中安然入睡。躲避干扰、抓紧补眠，你能睡过整堂课吗？
                             </p>
-                            <RouterLink to="games/ClassSleep" no-intercept="true" class="btn btn-primary">开始游戏
+                            <RouterLink to="apps/ClassSleep" no-intercept="true" class="btn btn-primary">开始游戏
                             </RouterLink>
                         </div>
                     </div>

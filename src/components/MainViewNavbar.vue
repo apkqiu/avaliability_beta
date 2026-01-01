@@ -1,14 +1,15 @@
 <script setup>
+import { onMounted} from 'vue';
+import { nav } from '../web_data';
 const props = defineProps(["title"])
-const urls = {
-    "首页":"/",
-    "新闻":"/news",
-    "文学创作": "/text",
-    "自制网页": "/webmaker",
-    "设置": "/settings",
-    "小游戏": "/games",
-    "资料库": "/resource",
-}
+
+let bootstrap;
+let offcanvas;
+onMounted(async () => {
+    bootstrap = await import("bootstrap")
+    offcanvas = new bootstrap.Offcanvas('#offcanvas');
+})
+
 </script>
 
 <template>
@@ -23,12 +24,12 @@ const urls = {
         <div class="container-fluid">
             <span>{{ props.title }}</span>
             <ul class="navbar-nav me-auto hide_on_mobile">
-                <li class="nav-item" v-for="name in Object.keys(urls)">
-                    <RouterLink class="nav-link" :to="urls[name]">{{name}}</RouterLink>
+                <li class="nav-item" v-for="name in Object.keys(nav)">
+                    <RouterLink class="nav-link" :to="nav[name]">{{ name }}</RouterLink>
                 </li>
             </ul>
             <div class="d-flex">
-                <button class="btn" type="button" @click="new bootstrap.Offcanvas('#offcanvas').show()">
+                <button class="btn" type="button" @click="offcanvas.show()">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
@@ -42,19 +43,11 @@ const urls = {
         <div class="offcanvas-body">
             <h3>导航</h3>
             <div class="list-group">
-                <RouterLink class="list-group-item" v-for="name in Object.keys(urls)" :to="urls[name]">{{name}}</RouterLink>
+                <RouterLink class="list-group-item" v-for="name in Object.keys(nav)" :to="nav[name]" @vue:before-update="offcanvas.hide()">{{ name }}
+                </RouterLink>
             </div>
             <br />
-            <h3>搜索</h3>
-            <ul class="list-group">
-                <li class="input-group clearfix">
-                    <input type="text" class="form-control" placeholder="搜索" oninput="search()" />
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="search()">
-                        搜索
-                    </button>
-                </li>
-                <div></div>
-            </ul>
+            
         </div>
     </div>
 </template>

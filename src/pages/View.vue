@@ -1,7 +1,6 @@
-<script setup lang="jsx">
+<script setup lang="js">
 import { onMounted, ref, useTemplateRef } from 'vue';
-import { urlarg, root } from '../utils';
-import axios from 'axios';
+import { Url, WebFile } from '../utils';
 import MarkdownIt from "markdown-it";
 import { footnote } from "@mdit/plugin-footnote";
 import { align } from "@mdit/plugin-align";
@@ -11,16 +10,22 @@ import markdownQuote from 'markdown-it-quote';
 import Comments from '../components/Comments.vue';
 import * as pdfRenderer from '../lib/PdfRenderer.js';
 import $ from 'jquery';
+import { popular } from '../web_data.js';
 const doccontent = useTemplateRef("content");
 const lg_img_src = ref('');
+const preview = useTemplateRef("preview");
 definePage({ meta: { title: "文章详情" } })
 onMounted(async () => {
-    const bootstrap = await import("bootstrap");
+    let bootstrap = await import("bootstrap"); //ensure bootstrap is loaded
+    let { name, pdf } = Url.args();
     // normal document ## from articles/news
-    var name = urlarg('name');
     if (name) {
-        let content = await axios.get(`${root}/articles/${name}`);
-        let html = content.data;
+        let html
+        try {
+            html = await WebFile.fetch("/articles/"+name);
+        } catch (e) {
+            html = "文章不存在"
+        }
         if (name.endsWith('.md')) {
             const plugin_to_use = [
                 footnote,
@@ -40,8 +45,8 @@ onMounted(async () => {
         doccontent.value.innerHTML = html;
     }
     // pdf document ## from ref/pdf
-    var pdf = urlarg('pdf');
     if (pdf) {
+        const url = `${WebFile.root}/res/pdf/zhoubao${pdf}.pdf`;
         var container = $("<div></div>");
         $(`
         <select>
@@ -56,25 +61,24 @@ onMounted(async () => {
         </select>
         `).change((e) => {
             var value = $(e.target).val();
-            pdfRenderer.renderIntoContainer(container[0], `${root}/res/pdf/zhoubao${pdf}.pdf`, { scale: parseFloat(value) });
+            pdfRenderer.renderIntoContainer(container[0], url, { scale: parseFloat(value) });
         }).appendTo(doccontent.value);
         ;
 
-        pdfRenderer.renderIntoContainer(container[0], `${root}/res/pdf/zhoubao${pdf}.pdf`, { scale: 1 });
         container.appendTo(doccontent.value);
+        pdfRenderer.renderIntoContainer(container[0], url, { scale: 2 });
     }
-    const preview_modal = new bootstrap.Modal("#preview");
+    const preview_modal = new bootstrap.Modal(preview.value);
     $("#content img").on("click", function () {
-        lg_img_src.value = $(this).attr("src");
-        console.log(this);
+        lg_img_src.value = this.src;
         preview_modal.show();
     });
 })
 </script>
 
 <style scoped>
-img {
-    width: 80%;
+#content :deep(img) {
+    width: 100%;
     display: inline-block;
     image-orientation: from-image;
 }
@@ -90,7 +94,7 @@ img {
 }
 </style>
 <template>
-    <div class="modal fade" id="preview" tabindex="-1">
+    <div class="modal fade" ref="preview" tabindex="-1">
         <div class="modal-dialog modal-xl modal-fullscreen-xl-down modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header" style="height: 50px !important;">
@@ -117,11 +121,11 @@ img {
         </div>
         <div class="col-md-4" id="ads">
             <h4>人人关注</h4>
-            <ul class="list-group list-group-flush" id="recommend"></ul>
-            <div id="same_author">
-                <h4>同作者的其他文章</h4>
-                <ul class="list-group list-group-flush" id="same_author_list"></ul>
-            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" v-for="name in Object.keys(popular)">
+                    <RouterLink :to="`/View?name=${popular[name]}`" v-html="name"></RouterLink>
+                </li>
+            </ul>
         </div>
     </div>
 </template>

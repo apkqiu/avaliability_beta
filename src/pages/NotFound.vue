@@ -1,6 +1,7 @@
 <script setup>
-import { randbetween } from '../utils.js';
+import { Random } from '../utils.js';
 import {ref} from 'vue';
+definePage({ meta: { title: "404" } })
 defineProps(["url"]);
 const saying = ref("生大材，不遇其时，其势定衰。生平庸，不化其势，其性定弱。");
 const more_sayings = [
@@ -13,7 +14,7 @@ const more_sayings = [
   "生大材，不遇其时，其势定衰。生平庸，不化其势，其性定弱。"
 ]
 function change_saying(event){
-  var selected = more_sayings[randbetween(0, more_sayings.length - 1)];
+  var selected = more_sayings[Random.randbetween(0, more_sayings.length - 1)];
   event.target.disabled = true;
   
   // typewrite
@@ -30,7 +31,7 @@ function change_saying(event){
   }, 30 * selected.length);
 }
 </script>
-<script lang="ts">
+<script >
 </script>
 <template>
   <div class="not-found">

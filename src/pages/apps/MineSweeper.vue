@@ -1,5 +1,4 @@
-<script setup lang="ts">
-import { definePage } from 'unplugin-vue-router/runtime';
+<script setup >
 import Reserved from '../../components/Reserved.vue';
 definePage({meta:{title:"扫雷"}})
 </script>

@@ -105,7 +105,6 @@ h2 {
     font-family: "SimHei";
     display: flex;
     justify-content: center;
-    noshade: "noshade";
     height: 35px;
     margin: 25px auto 5px auto;
 }
@@ -375,7 +374,7 @@ h1 {
 }
 </style>
 <template>
-    
+
     <div style="all:initial">
 
 
@@ -442,12 +441,12 @@ h1 {
 </template>
 <script setup>
 // 游戏配置
-import { root } from "@/utils"
+import { WebFile } from "@/utils"
 import { onMounted } from "vue";
 definePage({
-  meta: {
-    title: "上课睡觉模拟器"
-  },
+    meta: {
+        title: "上课睡觉模拟器"
+    },
 })
 const GAME_CONFIG = {
     difficulties: {
@@ -490,8 +489,8 @@ const GAME_CONFIG = {
         '做一张基础卷',
     ],
     images: {
-        sit: `${root}/res/img/sit.jpeg`,
-        sleep: `${root}/res/img/sleep.jpeg`,
+        sit: `${WebFile.root}/res/img/sit.jpeg`,
+        sleep: `${WebFile.root}/res/img/sleep.jpeg`,
     },
 };
 

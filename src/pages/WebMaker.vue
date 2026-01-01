@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup >
 import Reserved from '../components/Reserved.vue';
 definePage({meta:{title:"自制网页"}})
 </script>

@@ -1,10 +1,11 @@
 <script setup lang="js">
-import { onMounted, useTemplateRef, ref } from "vue";
+import { onMounted, useTemplateRef, ref, nextTick, watchEffect } from "vue";
 import MainViewNavbar from "./MainViewNavbar.vue";
-import { hex2rgb, check, root, } from "../utils";
+import { Color, Variable, WebDocument, WebFile } from "../utils";
 import localforage from "localforage";
 import $ from "jquery";
 import Parallax from "parallax-js";
+import { rgba } from "../csshelper";
 const props = defineProps(["title"]);
 
 function load(name, fallback) {
@@ -12,12 +13,10 @@ function load(name, fallback) {
         return localStorage.getItem(name) || fallback;
     return fallback;
 }
-const scene = useTemplateRef("scene");
 
-const bodybg = ref()
-const maskbg = ref()
+const bglayers = ref([]);
+// [{img: "/bg-1.jpg", deepth: 0.5}, ...]
 const get_setting = () => {
-
     return {
         color: load("color", "#000000"),
         adv_bg: load("adv_bg", "true") === 'true' ? true : false,
@@ -27,81 +26,60 @@ const get_setting = () => {
         coloropacity: parseInt(load("coloropacity", "0")),
     }
 }
-let current_settings = ref({});
-let old_custom_img = "";
-const update_style = (() => {
-    // 在onMounted中设置document.title，确保只在客户端执行
+watchEffect(()=>{
     document.title = props.title + " | 洽隐山房";
+})
+const settings = ref({});
+let old_custom_img = "";
+let parallax = null;
+const update_style = (async (old_settings, new_settings) => {
+    
+    settings.value = new_settings;
 
-    let settings = get_setting();
-    if (settings.mode === 'dark') {
+    if (new_settings.mode === 'dark') {
         document.body.setAttribute("data-bs-theme", "dark");
     } else {
         document.body.setAttribute("data-bs-theme", "light");
     }
-    if (!settings.adv_bg) {
-        bodybg.value = `rgba(${hex2rgb(settings.color).join(',')},1)`
-    } else {
-        if (settings.bgbrightness >= 100) {
-            maskbg.value = `rgba(255,255,255,${(settings.bgbrightness - 100) / 100})`
-        } else {
-            maskbg.value = `rgba(0,0,0,${(100 - settings.bgbrightness) / 100})`
-        }
-        bodybg.value = `rgba(${hex2rgb(settings.color).join(',')},${settings.coloropacity / 100})`
-        if (settings.imgbg.startsWith('custom')) {
-            
-            localforage.getItem('imgbg').then(function (value) {
-                if(value === old_custom_img) return;
-                old_custom_img = value;
-                $(scene.value).empty();
-                var box = $(`<li class="layer" data-depth="0.4" style="height: 100%; width: 100%"></li>`)
-                var bg = $(`<img style="height: 100%; width: 100%; object-fit: cover"/>`)
-                bg.attr("src", value);
-                box.append(bg).appendTo(scene.value);
+    await (async () => { // block 背景设置
+        if (new_settings.adv_bg) {
+            if (old_settings.imgbg === new_settings.imgbg) {
+                return
+            }
+            if (new_settings.imgbg.startsWith('custom')) {
+                // 自定义背景：图像存在localforage中
+                let value = await localforage.getItem('imgbg')
+                bglayers.value.splice(0, bglayers.value.length);
+                bglayers.value.push({ img: value, depth: 0.4 });
+            } else if (typeof WebFile.public.res.img.background[new_settings.imgbg] === 'string') {
+                // 如果背景是单张图片，则直接添加
+                bglayers.value.splice(0, bglayers.value.length);
+                bglayers.value.push({ img: WebFile.root + "/res/img/background/" + new_settings.imgbg, deepth: 0.4 })
+            } else {
+                // 如果背景是多个图片，则加载deepth.json文件，根据深度添加图片
+                let data = await WebFile.fetch("/res/img/background/" + new_settings.imgbg + "/deepth.json")
+                bglayers.value.splice(0, bglayers.value.length);
+                for (var i = 0; i < data.layers; i++) {
+                    bglayers.value.push({ img: WebFile.root + "/res/img/background/" + new_settings.imgbg + "/" + (i + 1) + ".png", deepth: data.deepth[i] });
+                }
+            }
 
-                new Parallax(scene.value);
-            });
-        } else if (settings.imgbg != current_settings.value.imgbg || settings.adv_bg != current_settings.value.adv_bg) {
-            // 判断变化(1)的原因：如果imgbg变化，则重新加载背景，重置Parallax效果会导致画面闪烁
-            // 判断变化(2)的原因：禁用高级背景会导致Parallax被删除，启用后需要重新加载
-            $.get(root + "/res/img/background/" + settings.imgbg + "/deepth.json").then(function (data) {
-                if (typeof data === 'string') {
-                    $(scene.value).empty();
-                    var box = $(`<li class="layer" data-depth="0.4" style="height: 100%; width: 100%"></li>`)
-                    var bg = $(`<img style="height: 100%; width: 100%; object-fit: cover"/>`)
-                    bg.attr("src", root + "/res/img/background/" + settings.imgbg);
-                    box.append(bg).appendTo(scene.value);
-                    new Parallax(scene.value);
-                    return;
-                }
-                // we may change the scene
-                var layers_count = data.layers;
-                var img = data.img;
-                var layers = [];
-                for (var i = 0; i < layers_count; i++) {
-                    layers.push({ img: root + "/res/img/background/" + settings.imgbg + "/" + (i + 1) + ".png", deepth: data.deepth[i] });
-                }
-                $(scene.value).empty();
-                for (var i = 0; i < layers_count; i++) {
-                    /*
-                    <li class="layer" data-depth="0.4" style="height: 100%; width: 100%">
-                        <img id="bg" style="height: 100%; width: 100%; object-fit: cover" />
-                    </li>
-                    */
-                    var layer = $('<li class="layer" data-depth="' + layers[i].deepth + '" style="height: 100%; width: 100%"></li>');
-                    var img = $('<img style="height: 100%; width: 100%; object-fit: cover" />');
-                    img.attr('src', layers[i].img);
-                    layer.append(img);
-                    $(scene.value).append(layer);
-                }
-                new Parallax(scene.value);
+            nextTick(() => {
+                if (parallax) parallax.destroy();
+                parallax = new Parallax(document.getElementById("scene"))
             })
+        } else {
+            // 关闭了高级背景
+            if (parallax) parallax.destroy();
+            parallax = null;
         }
-    }
-    current_settings.value = settings;
+    })()
+
 });
-onMounted(update_style);
-check(get_setting, update_style);
+onMounted(() => {
+    parallax = new Parallax(document.getElementById("scene"));
+    Variable.watch(get_setting, update_style, {})
+})
 </script>
 
 <template>
@@ -117,16 +95,24 @@ check(get_setting, update_style);
       height: 120vh;
       overflow: hidden;
       z-index: -10;
-    " v-if="current_settings.adv_bg">
-        <ul style="height: 100%; width: 100%" ref="scene">
-            <li class="layer" data-depth="0.4" style="height: 100%; width: 100%">
-                <img style="height: 100%; width: 100%; object-fit: cover" ref="bg" />
+    " v-show="settings.adv_bg">
+        <ul id="scene">
+            <li class="layer" :data-depth="deepth" v-for="{ deepth, img } in bglayers">
+                <img style="height: 120vh; width: 120vw; object-fit: cover" :src="img" />
             </li>
         </ul>
     </div>
-    <div ref="mask" :style="`min-height: 100vh; background: ${maskbg};`">
-        <div ref="mainbody"
-            :style="`min-height: 100vh; padding: 60px 0 0 0; overflow-x: hidden; background: ${bodybg};`">
+    <div ref="mask" style="min-height: 100vh;" :style="{
+        background: rgba(
+            (settings.bgbrightness >= 100 ? ',255' : ',0').repeat(3).substring(1),
+            Math.abs(settings.bgbrightness - 100) / 100
+        )
+    }">
+        <div ref="mainbody" style="min-height: 100vh; padding: 60px 0 0 0; overflow-x: hidden;" :style="{
+            background: rgba(
+                Color.hex2rgb(settings.color || '#000').join(','),
+                settings.adv_bg ? settings.coloropacity / 100 : 1)
+        }">
             <div style="min-height: calc(100vh - 58px); margin: 10px">
                 <div style="padding-top: 70px; margin-top: -70px">
                     <slot />
@@ -146,4 +132,4 @@ check(get_setting, update_style);
         </div>
     </div>
 </template>
-<script lang="ts"></script>
+<script ></script>
