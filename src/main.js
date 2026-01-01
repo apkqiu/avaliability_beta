@@ -12,7 +12,7 @@ document.title = "正在加载...";
 const base = "/avaliability_beta";
 
 const app = createApp(App)
-routes.push({path:"/:pathMatch(.*)*",component:import("@/pages/Notfound.vue"), name:"404"})
+routes.push({path:"/:pathMatch(.*)*",component:import("./pages/NotFound.vue"), name:"404"})
 console.log(routes)
 const router = createRouter({
     history: createWebHashHistory(base),
