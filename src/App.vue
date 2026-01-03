@@ -2,20 +2,27 @@
 import MainView from './components/MainView.vue';
 import { RouterView } from 'vue-router';
 import { onMounted } from 'vue';
+import MainViewNavbar from './components/MainViewNavbar.vue';
 onMounted(async () => {
   await import("bootstrap") // 为什么呢？
 })
+
+if (import.meta.hot) {
+  import.meta.hot.on("vite:beforeUpdate", console.clear);
+  import.meta.hot.on("vite:beforeFullReload", console.clear);
+}
 </script>
 
 <template>
   <RouterView v-slot="{ Component, route }">
-    <component :is="route.meta.view || MainView" :title="route.meta.title || route.name">
+    <MainViewNavbar :title="route.meta.title || route.name" />
+    <MainView :title="route.meta.title || route.name">
       <Transition mode="out-in">
         <div :key="route.fullPath">
           <component :is="Component" />
         </div>
       </Transition>
-    </component>
+    </MainView>
   </RouterView>
 </template>
 

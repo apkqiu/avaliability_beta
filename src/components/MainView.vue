@@ -30,7 +30,6 @@ watchEffect(()=>{
     document.title = props.title + " | 洽隐山房";
 })
 const settings = ref({});
-let old_custom_img = "";
 let parallax = null;
 const update_style = (async (old_settings, new_settings) => {
     
@@ -83,7 +82,6 @@ onMounted(() => {
 </script>
 
 <template>
-    <MainViewNavbar :title="props.title" />
     <div style="
       position: fixed;
       left: 50vw;

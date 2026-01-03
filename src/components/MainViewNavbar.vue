@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted} from 'vue';
 import { nav } from '../web_data';
+import { Menu, MenuItem } from 'view-ui-plus';
 const props = defineProps(["title"])
 
 let bootstrap;

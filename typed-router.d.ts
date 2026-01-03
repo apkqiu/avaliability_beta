@@ -93,6 +93,20 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/test/Index': RouteRecordInfo<
+      '/test/Index',
+      '/test/Index',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/test/PDF': RouteRecordInfo<
+      '/test/PDF',
+      '/test/PDF',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/Text': RouteRecordInfo<
       '/Text',
       '/Text',
@@ -184,6 +198,18 @@ declare module 'vue-router/auto-routes' {
     'src/pages/Settings.vue': {
       routes:
         | '/Settings'
+      views:
+        | never
+    }
+    'src/pages/test/Index.vue': {
+      routes:
+        | '/test/Index'
+      views:
+        | never
+    }
+    'src/pages/test/PDF.vue': {
+      routes:
+        | '/test/PDF'
       views:
         | never
     }

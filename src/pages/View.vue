@@ -8,21 +8,28 @@ import { attrs } from "@mdit/plugin-attrs";
 import { ins } from "@mdit/plugin-ins";
 import markdownQuote from 'markdown-it-quote';
 import Comments from '../components/Comments.vue';
-import * as pdfRenderer from '../lib/PdfRenderer.js';
 import $ from 'jquery';
 import { popular } from '../web_data.js';
+import PdfViewer2 from '../components/PdfViewer2.vue';
+import PdfViewer from '../components/PdfViewer.vue';
 const doccontent = useTemplateRef("content");
 const lg_img_src = ref('');
 const preview = useTemplateRef("preview");
+const pdf_src = ref('');
 definePage({ meta: { title: "文章详情" } })
 onMounted(async () => {
+    doccontent.value.addEventListener("DOMSubtreeModified", ()=>{
+        
+
+    })
+
     let bootstrap = await import("bootstrap"); //ensure bootstrap is loaded
     let { name, pdf } = Url.args();
     // normal document ## from articles/news
     if (name) {
         let html
         try {
-            html = await WebFile.fetch("/articles/"+name);
+            html = await WebFile.fetch("/articles/" + name);
         } catch (e) {
             html = "文章不存在"
         }
@@ -46,33 +53,10 @@ onMounted(async () => {
     }
     // pdf document ## from ref/pdf
     if (pdf) {
-        const url = `${WebFile.root}/res/pdf/zhoubao${pdf}.pdf`;
-        var container = $("<div></div>");
-        $(`
-        <select>
-            <option value="1">1. 较低质量</option>
-            <option value="2" selected>2. 一般质量</option>
-            <option value="3">3. 稍高质量</option>
-            <option value="4">4. 较高质量</option>
-            <option value="5">5. 准高质量</option>
-            <option value="6">6. 超高质量</option>
-            <option value="7">7. 极高质量</option>
-            <option value="8">8. 最高质量</option>
-        </select>
-        `).change((e) => {
-            var value = $(e.target).val();
-            pdfRenderer.renderIntoContainer(container[0], url, { scale: parseFloat(value) });
-        }).appendTo(doccontent.value);
-        ;
-
-        container.appendTo(doccontent.value);
-        pdfRenderer.renderIntoContainer(container[0], url, { scale: 2 });
+        pdf_src.value = "/res/pdf/zhoubao" + pdf + ".pdf";
     }
     const preview_modal = new bootstrap.Modal(preview.value);
-    $("#content img").on("click", function () {
-        lg_img_src.value = this.src;
-        preview_modal.show();
-    });
+
 })
 </script>
 
@@ -112,7 +96,8 @@ onMounted(async () => {
     <div class="row">
         <div class="col-md-8">
             <div style="backdrop-filter: blur(10px); padding: 10px">
-                <div ref="content" id="content"></div>
+                <PdfViewer :src="pdf_src" v-if="pdf_src" style="width:100%" :options="{ 'scale': 4 }" />
+                <div ref="content" id="content" v-else></div>
                 <br />
                 <br />
                 <hr />
