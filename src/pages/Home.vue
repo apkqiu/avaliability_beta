@@ -12,8 +12,8 @@ import { popular } from "../lib/web_data.js";
 import { get_carousel } from "../lib/web_data.js"
 
 const items = [];
-const carousel_items =await get_carousel();
-carousel_items[0].active=true;
+const carousel_items = await get_carousel();
+carousel_items[0].active = true;
 
 const dir_items = vfs_articles.news;
 for (let key in dir_items) {

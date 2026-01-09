@@ -47,7 +47,7 @@ onMounted(async () => {
                     <a :href="obj_src" download>下载</a>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <embed :src="obj_src" style="width: 100%; height: 100%; "></embed>
+                <embed :src="obj_src" style="width: 100%; height: 100%; object-fit: contain;"></embed>
             </div>
         </div>
     </div>

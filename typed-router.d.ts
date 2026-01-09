@@ -79,6 +79,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/Performance': RouteRecordInfo<
+      '/Performance',
+      '/Performance',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/Resource': RouteRecordInfo<
       '/Resource',
       '/Resource',
@@ -172,6 +179,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/NotFound.vue': {
       routes:
         | '/NotFound'
+      views:
+        | never
+    }
+    'src/pages/Performance.vue': {
+      routes:
+        | '/Performance'
       views:
         | never
     }
