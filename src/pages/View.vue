@@ -1,62 +1,39 @@
 <script setup lang="js">
 import { onMounted, ref, useTemplateRef } from 'vue';
-import { Url, WebFile } from '../utils';
-import MarkdownIt from "markdown-it";
-import { footnote } from "@mdit/plugin-footnote";
-import { align } from "@mdit/plugin-align";
-import { attrs } from "@mdit/plugin-attrs";
-import { ins } from "@mdit/plugin-ins";
-import markdownQuote from 'markdown-it-quote';
+import { Url, WebDocument } from '../lib/utils';
+import vfs_articles from "vfs:src/articles";
 import Comments from '../components/Comments.vue';
-import $ from 'jquery';
-import { popular } from '../web_data.js';
-import PdfViewer2 from '../components/PdfViewer2.vue';
+import { popular } from '../lib/web_data.js';
 import PdfViewer from '../components/PdfViewer.vue';
+import { Modal } from "bootstrap";
 const doccontent = useTemplateRef("content");
 const lg_img_src = ref('');
 const preview = useTemplateRef("preview");
 const pdf_src = ref('');
 definePage({ meta: { title: "文章详情" } })
 onMounted(async () => {
-    doccontent.value.addEventListener("DOMSubtreeModified", ()=>{
-        
-
-    })
-
-    let bootstrap = await import("bootstrap"); //ensure bootstrap is loaded
     let { name, pdf } = Url.args();
+
     // normal document ## from articles/news
     if (name) {
-        let html
-        try {
-            html = await WebFile.fetch("/articles/" + name);
-        } catch (e) {
-            html = "文章不存在"
-        }
-        if (name.endsWith('.md')) {
-            const plugin_to_use = [
-                footnote,
-                align,
-                markdownQuote,
-                attrs,
-                ins,
-            ]
-
-            const md = new MarkdownIt();
-            for (const plugin of plugin_to_use) {
-                md.use(plugin);
-            }
-
-            html = md.render(html);
-        }
-        doccontent.value.innerHTML = html;
+        name = name.split("/");
+        doccontent.value.innerHTML = await new WebDocument(vfs_articles[name[0]][name[1]].content,true).render();
     }
     // pdf document ## from ref/pdf
-    if (pdf) {
-        pdf_src.value = "/res/pdf/zhoubao" + pdf + ".pdf";
-    }
-    const preview_modal = new bootstrap.Modal(preview.value);
-
+    if (pdf)
+        pdf_src.value = (await import(`@/static/pdf/zhoubao${pdf}.pdf`)).default;
+    const preview_modal = new Modal(preview.value);
+    let x;
+    new MutationObserver(x = () => {
+        let imgs = doccontent.value.querySelectorAll("img");
+        imgs.forEach((img) => {
+            img.addEventListener("click", () => {
+                lg_img_src.value = img.src;
+                preview_modal.show();
+            })
+        })
+    }).observe(doccontent.value, { childList: true, subtree: true });
+    x();
 })
 </script>
 
@@ -79,7 +56,7 @@ onMounted(async () => {
 </style>
 <template>
     <div class="modal fade" ref="preview" tabindex="-1">
-        <div class="modal-dialog modal-xl modal-fullscreen-xl-down modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-dialog modal-fullscreen modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header" style="height: 50px !important;">
                     <span>{{ lg_img_src.split('/').at(-1) }}</span>
@@ -88,6 +65,7 @@ onMounted(async () => {
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
+
                     <img :src="lg_img_src"></img>
                 </div>
             </div>
@@ -96,15 +74,14 @@ onMounted(async () => {
     <div class="row">
         <div class="col-md-8">
             <div style="backdrop-filter: blur(10px); padding: 10px">
-                <PdfViewer :src="pdf_src" v-if="pdf_src" style="width:100%" :options="{ 'scale': 4 }" />
-                <div ref="content" id="content" v-else></div>
-                <br />
-                <br />
+                <div ref="content">
+                    <PdfViewer :src="pdf_src" v-if="pdf_src" style="width:100%" :options="{ 'scale': 4 }" />
+                </div>
                 <hr />
                 <Comments />
             </div>
         </div>
-        <div class="col-md-4" id="ads">
+        <div class="col-md-4">
             <h4>人人关注</h4>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item" v-for="name in Object.keys(popular)">

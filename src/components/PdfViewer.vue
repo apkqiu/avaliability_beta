@@ -1,14 +1,12 @@
 <script setup>
-import $ from 'jquery'
 import { onMounted } from 'vue'
-import { WebFile } from '../utils';
+import { GlobalWorkerOptions as pdfjs_GlobalWorkerOptions, getDocument as pdfjs_getDocument, version as pdfjs_version } from 'pdfjs-dist';
 const props = defineProps(["src", "options", "style"])
 
-onMounted(async() => {
-    const url = WebFile.root+ props.src;
-    const options = typeof props.options==="string"?JSON.parse(props.options):props.options;
-    const pdfjsLib = await import('pdfjs-dist')
-    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.mjs`
+onMounted(async () => {
+    const url = props.src;
+    const options = typeof props.options === "string" ? JSON.parse(props.options) : props.options;
+    pdfjs_GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs_version}/build/pdf.worker.mjs`
     const container = document.getElementById('container')
     container.innerHTML = ''
 
@@ -16,7 +14,7 @@ onMounted(async() => {
     const targetPage = options?.page
 
     try {
-        const loadingTask = pdfjsLib.getDocument(url)
+        const loadingTask = pdfjs_getDocument(url)
         const pdf = await loadingTask.promise
 
         const pages = targetPage
@@ -30,7 +28,6 @@ onMounted(async() => {
             const imgview = document.createElement('img')
             const backcanvas = document.createElement('canvas')
             const context = backcanvas.getContext('2d')
-            $(imgview).append($('<div class="spinner-border"></div>'))
 
             imgview.style.marginBottom = '12px'
 

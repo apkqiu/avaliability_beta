@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref, useTemplateRef } from 'vue';
-import { Url, WebFile } from '../utils';
+import { Url, WebFile } from '../lib/utils';
+import { Modal } from 'bootstrap';
 definePage({ meta: { title: "资料库" } });
 
 const dir_items = ref([]);
@@ -16,19 +17,8 @@ function decode_(text) {
 }
 const web_root = "洽隐山房 · 资料库";
 
-const res_dir = {
-    媒体: {
-        图像: WebFile.public.res.img,
-        视频: WebFile.public.res.video,
-    },
-    文档: {
-        PDF: WebFile.public.res.pdf,
-    },
-    原始文章: WebFile.public.articles,
-}
-let bootstrap;
+const res_dir = WebFile.public;
 onMounted(async () => {
-    bootstrap = await import("bootstrap");
     let path = Url.arg("path") || encode_(web_root);
     dirname.value = decode_(path);
     let parts = dirname.value.split("/");
@@ -71,7 +61,7 @@ onMounted(async () => {
             item
         }}</RouterLink>
         <div class="list-group-item" v-for="item in file_items">
-            <a href="javascript:void(0)" @click="obj_src = item.real; new bootstrap.Modal(preview).show()">{{ item.name
+            <a href="javascript:void(0)" @click="obj_src = item.real; new Modal(preview).show()">{{ item.name
                 }}</a>
         </div>
     </div>

@@ -1,17 +1,14 @@
 <script setup>
-import { onMounted, ref } from 'vue';
-import { WebDocument, WebFile } from '../utils';
-const items = ref([]);
+import { WebDocument } from '../lib/utils';
+import vfs_articles from 'vfs:src/articles';
+import vidr_pdf from 'vdir:src/static/pdf';
+const items = [];
 definePage({ meta: { title: "新闻" } })
-
-onMounted(async ()=>{
-    if(items.value.length==0){
-        const dir_items = WebFile.public.articles.news;
-        for (let key in dir_items) {
-            items.value.push({name:key,title:await new WebDocument(dir_items[key]).getTitle()});
-        }
+if(items.length==0){
+    for (let item in vfs_articles.news) {
+        items.push({name:item,title:await new WebDocument(vfs_articles.news[item].content, true).getTitle()});
     }
-})
+}
 </script>
 <style scoped>
 a {
@@ -40,7 +37,7 @@ a {
         <div class="col-md" style="position:sticky">
             <h2>周报出版</h2>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item" v-for="id in Object.keys(WebFile.public.res.pdf).map((s)=>parseFloat(s.substring(7, s.length-4))).sort((a,b)=>b-a)">
+                <li class="list-group-item" v-for="id in Object.keys(vidr_pdf).map((s)=>parseFloat(s.substring(7, s.length-4))).sort((a,b)=>b-a)">
                     <RouterLink :to="`/view?pdf=${id}`">周恩来周报 第{{ id }}期</RouterLink>
                 </li>
             </ul>

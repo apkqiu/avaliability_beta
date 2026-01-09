@@ -1,20 +1,16 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import { WebFile, WebDocument } from '../utils';
+import { WebDocument } from '../lib/utils';
+import vfs_articles from 'vfs:src/articles';
 definePage({ meta: { title: "学生创作" } })
-const items = ref({});
-onMounted(async () => {
-    if (Object.keys(items.value).length == 0) {
-        for (let type of ["poems", "songs", "words", "writings"]) {
-            let dir_items = WebFile.public.articles[type];
-            items.value[type] = [];
-            for (let key in dir_items) {
-                const title = await new WebDocument(dir_items[key], 1).getTitle(1);
-                items.value[type].push({ name: key, title: `${title[0]} <small>作者：${title[1]}</small` });
-            }
-        }
+const items = {};
+for (let type of ["poems", "songs", "words", "writings"]) {
+    items[type] = [];
+    for (let name in vfs_articles[type]) {
+        const file = vfs_articles[type][name];
+        const [title, author] = await new WebDocument(file.content, true).getTitle(1);
+        items[type].push({title:`${title} <small>作者：${author}</small>`, name});
     }
-})
+}
 </script>
 <style scoped>
 a {

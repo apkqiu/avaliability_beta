@@ -4,59 +4,34 @@ a {
 }
 </style>
 <script setup>
-import { onMounted, ref } from "vue";
-import { WebDocument, WebFile } from "../utils.js";
-import { url } from "../csshelper.js"
-import { popular } from "../web_data.js";
+import { WebDocument } from "../lib/utils.js";
+import vdir_pdf from "vdir:src/static/pdf";
+import vfs_articles from "vfs:src/articles";
+import { url } from "../lib/csshelper.js"
+import { popular } from "../lib/web_data.js";
+import { get_carousel } from "../lib/web_data.js"
 
-const items = ref([]);
-const carousel_items = ref([])
+const items = [];
+const carousel_items =await get_carousel();
+carousel_items[0].active=true;
 
+const dir_items = vfs_articles.news;
+for (let key in dir_items) {
+    items.push({ name: key, title: await new WebDocument(dir_items[key].content, true).getTitle() });
+}
 
 definePage({ alias: ['/'], meta: { title: "首页" } })
 
-onMounted(async () => {
-    carousel_items.value = [
-        {
-            image: WebFile.root+"/res/img/ccnews/013.1.01.jpeg",
-            link: "/view?name=news/news013.1.md",
-            title: "传承中华体育魂",
-            source: "运动会快讯",
-        },
-        {
-            image: WebFile.root+"/res/img/news/birdinclass.png",
-            link: "/view?pdf=11",
-            title: "震惊！我教室飞鸟",
-            source: "《周恩来周报 第十一期》"
-        },
-        {
-            image: WebFile.root+"/res/img/news/微信图片_20251001100626_83_43.jpg",
-            title: "“老母鸡变鸭了啊”",
-            source: "——顾晓雯 | 名人名言"
-        },
-        {
-            image: WebFile.root+"/res/img/wechat.png",
-            link: "/view?name=news/0000.00.01.md",
-            title: "“一班报”",
-            source: "微信公众号"
-
-        }
-    ]
-    carousel_items.value[0].active = true;
-    if (items.value.length == 0) {
-        const dir_items = WebFile.public.articles.news;
-        for (let key in dir_items) {
-            items.value.push({ name: key, title: await new WebDocument(dir_items[key]).getTitle() });
-        }
-    }
-})
 </script>
 <template>
     <div>
         <div id="carousel" class="carousel slide h-100" style="backdrop-filter: blur(20px)">
             <div class="carousel-inner">
-                <div class="carousel-item" :class="{'active':active}" v-for="{ image, link, title, source, active } in carousel_items">
-                    <RouterLink class="news-bg d-block w-100" :style="{ 'background-image': url(typeof image==='string'?image:image.default) }" :to="link||''">
+                <div class="carousel-item" :class="{ 'active': active }"
+                    v-for="{ image, link, title, source, active } in carousel_items">
+                    <RouterLink class="news-bg d-block w-100"
+                        :style="{ 'background-image': url(typeof image === 'string' ? image : image.default) }"
+                        :to="link || ''">
                         <div class="news-txt-box">
                             <div class="news-txt">
                                 <h1>{{ title }}</h1>
@@ -101,7 +76,7 @@ onMounted(async () => {
                     </small>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"
-                            v-for="id in Object.keys(WebFile.public.res.pdf).map((s)=>parseFloat(s.substring(7, s.length-4))).sort((a,b)=>b-a).slice(0,5)">
+                            v-for="id in Object.keys(vdir_pdf).map((s) => parseFloat(s.substring(7, s.length - 4))).sort((a, b) => b - a).slice(0, 5)">
                             <RouterLink :to="`/view?pdf=${id}`">周恩来周报 第{{ id }}期</RouterLink>
                         </li>
                     </ul>

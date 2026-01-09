@@ -8,15 +8,16 @@
 </style>
 <script setup>
 import { onMounted } from 'vue';
-import { WebFile } from '../utils';
+import { WebFile } from '../lib/utils';
+import {GlobalWorkerOptions as pdfjs_GlobalWorkerOptions, getDocument as pdfjs_getDocument, version as pdfjs_version} from 'pdfjs-dist';
+
 const {src} = defineProps(["src"])
 onMounted(async () => {
     const scale = 1;
     try {
         document.getElementById("pdf-viewer").innerHTML = ""
-        const pdfjs = await import('pdfjs-dist');
-        pdfjs.GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs.version}/build/pdf.worker.mjs`;
-        const document_task = await pdfjs.getDocument(WebFile.root + src);
+        pdfjs_GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs_version}/build/pdf.worker.mjs`;
+        const document_task = await pdfjs_getDocument(WebFile.root + src);
         const pdf_document = await document_task.promise;
         const n_pages = pdf_document.numPages;
         for (let i = 1; i <= n_pages; i++) {

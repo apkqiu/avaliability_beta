@@ -1,14 +1,12 @@
 <script setup>
 import { onMounted} from 'vue';
-import { nav } from '../web_data';
-import { Menu, MenuItem } from 'view-ui-plus';
+import { nav } from '../lib/web_data';
+import { Offcanvas } from 'bootstrap';
 const props = defineProps(["title"])
 
-let bootstrap;
 let offcanvas;
 onMounted(async () => {
-    bootstrap = await import("bootstrap")
-    offcanvas = new bootstrap.Offcanvas('#offcanvas');
+    offcanvas = new Offcanvas('#offcanvas');
 })
 
 </script>

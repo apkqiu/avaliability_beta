@@ -420,7 +420,7 @@ h1 {
 
                 <div id="sleep" class="action-btn">睡眠</div>
 
-                <div id="teacher-image"><img src="/res/img/loading.gif" alt="老师" /></div>
+                <div id="teacher-image"><img src="@/static/img/loading.gif" alt="老师" /></div>
             </div>
 
             <div id="game-over">
@@ -441,7 +441,7 @@ h1 {
 </template>
 <script setup>
 // 游戏配置
-import { WebFile } from "@/utils"
+import { WebFile } from "@/lib/utils"
 import { onMounted } from "vue";
 definePage({
     meta: {
@@ -489,11 +489,10 @@ const GAME_CONFIG = {
         '做一张基础卷',
     ],
     images: {
-        sit: `${WebFile.root}/res/img/sit.jpeg`,
-        sleep: `${WebFile.root}/res/img/sleep.jpeg`,
+        sit: await import('@/static/img/sit.jpeg'),
+        sleep: await import('@/static/img/sleep.jpeg'),
     },
 };
-
 // 游戏状态
 let gameState = {
     difficulty: 'easy',

@@ -1,5 +1,11 @@
 import axios from "axios";
 import localforage from "localforage";
+import MarkdownIt from "markdown-it";
+import { footnote } from "@mdit/plugin-footnote";
+import { align } from "@mdit/plugin-align";
+import { attrs } from "@mdit/plugin-attrs";
+import { ins } from "@mdit/plugin-ins";
+import markdownQuote from 'markdown-it-quote';
 
 //#region url tools
 export const Url = {
@@ -11,13 +17,12 @@ export const Url = {
         for (const [key, value] of query_arg.entries()) {
             args[key] = value;
         }
-        if (hash_start>query_start) {
+        if (hash_start > query_start) {
             const hash_arg = new URLSearchParams(full_url.substring(hash_start));
             for (const [key, value] of hash_arg.entries()) {
                 args[key] = value;
             }
         }
-        console.log(args)
         return args;
     },
     arg(name) {
@@ -162,14 +167,33 @@ export const WebFile = {
 
 //#endregion
 //#region document tools
+export const MarkdownRenderer = new MarkdownIt({ html: true });
+const plugin_to_use = [
+    footnote,
+    align,
+    markdownQuote,
+    attrs,
+    ins,
+]
+for (const plugin of plugin_to_use) {
+    MarkdownRenderer.use(plugin);
+}
+
 export class WebDocument {
-    constructor(url) {
-        this.url = url;
-        this.text = null;
+    constructor(url, isText=false) {
+        if(isText){
+            this.text = url;
+        }else{
+            this.text = null;
+            this.url = url;
+        }
     }
     async load() {
         if (this.text) return this.text;
         return this.text = await WebFile.fetch(this.url);
+    }
+    async render(renderer= MarkdownRenderer) {
+        return renderer.render(await this.load());
     }
     async getTitle(more_lines = 0) {
         let lines = (await this.load()).split("\n");

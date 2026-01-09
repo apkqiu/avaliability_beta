@@ -1,17 +1,16 @@
 <script setup lang="js">
-import { onMounted, useTemplateRef, ref, nextTick, watchEffect } from "vue";
-import MainViewNavbar from "./MainViewNavbar.vue";
-import { Color, Variable, WebDocument, WebFile } from "../utils";
+import { onMounted, ref, nextTick, watchEffect } from "vue";
+import { Color, Variable } from "../lib/utils";
 import localforage from "localforage";
-import $ from "jquery";
 import Parallax from "parallax-js";
-import { rgba } from "../csshelper";
+import { rgba } from "../lib/csshelper";
+import { background } from "../lib/web_data";
 const props = defineProps(["title"]);
 
 function load(name, fallback) {
     if (typeof localStorage !== 'undefined')
-        return localStorage.getItem(name) || fallback;
-    return fallback;
+    return localStorage.getItem(name) || fallback;
+return fallback;
 }
 
 const bglayers = ref([]);
@@ -19,47 +18,35 @@ const bglayers = ref([]);
 const get_setting = () => {
     return {
         color: load("color", "#000000"),
-        adv_bg: load("adv_bg", "true") === 'true' ? true : false,
+        adv_bg: load("adv_bg", "true") === 'true',
         mode: load("dark", "true") === 'true' ? "dark" : 'light',
         imgbg: load("imgbg", "bg-1.jpg"),
         bgbrightness: parseInt(load("bgbrightness", "50")),
         coloropacity: parseInt(load("coloropacity", "0")),
     }
 }
-watchEffect(()=>{
+watchEffect(() => {
     document.title = props.title + " | 洽隐山房";
 })
 const settings = ref({});
 let parallax = null;
 const update_style = (async (old_settings, new_settings) => {
-    
     settings.value = new_settings;
-
-    if (new_settings.mode === 'dark') {
-        document.body.setAttribute("data-bs-theme", "dark");
-    } else {
-        document.body.setAttribute("data-bs-theme", "light");
-    }
-    await (async () => { // block 背景设置
-        if (new_settings.adv_bg) {
-            if (old_settings.imgbg === new_settings.imgbg) {
-                return
-            }
+    document.body.setAttribute("data-bs-theme", new_settings.mode);
+    if (new_settings.adv_bg) {
+        if (old_settings.imgbg !== new_settings.imgbg) {
+            bglayers.value.splice(0, bglayers.value.length);
             if (new_settings.imgbg.startsWith('custom')) {
                 // 自定义背景：图像存在localforage中
-                let value = await localforage.getItem('imgbg')
-                bglayers.value.splice(0, bglayers.value.length);
-                bglayers.value.push({ img: value, depth: 0.4 });
-            } else if (typeof WebFile.public.res.img.background[new_settings.imgbg] === 'string') {
+                bglayers.value.push({ img: await localforage.getItem('imgbg'), depth: 0.4 });
+            } else if (typeof background[new_settings.imgbg] === "function") {
                 // 如果背景是单张图片，则直接添加
-                bglayers.value.splice(0, bglayers.value.length);
-                bglayers.value.push({ img: WebFile.root + "/res/img/background/" + new_settings.imgbg, deepth: 0.4 })
+                bglayers.value.push({ img: (await background[new_settings.imgbg]()).default, deepth: 0.4 })
             } else {
                 // 如果背景是多个图片，则加载deepth.json文件，根据深度添加图片
-                let data = await WebFile.fetch("/res/img/background/" + new_settings.imgbg + "/deepth.json")
-                bglayers.value.splice(0, bglayers.value.length);
-                for (var i = 0; i < data.layers; i++) {
-                    bglayers.value.push({ img: WebFile.root + "/res/img/background/" + new_settings.imgbg + "/" + (i + 1) + ".png", deepth: data.deepth[i] });
+                let data = background[new_settings.imgbg];
+                for (var i of data) {
+                    bglayers.value.push({ img: (await i[0]()).default, deepth: i[1] });
                 }
             }
 
@@ -67,16 +54,14 @@ const update_style = (async (old_settings, new_settings) => {
                 if (parallax) parallax.destroy();
                 parallax = new Parallax(document.getElementById("scene"))
             })
-        } else {
-            // 关闭了高级背景
-            if (parallax) parallax.destroy();
-            parallax = null;
         }
-    })()
-
+    } else {
+        // 关闭了高级背景
+        if (parallax) parallax.destroy();
+        parallax = null;
+    }
 });
 onMounted(() => {
-    parallax = new Parallax(document.getElementById("scene"));
     Variable.watch(get_setting, update_style, {})
 })
 </script>
@@ -124,10 +109,10 @@ onMounted(() => {
                     <i>
                         <br />电话：13270463238 <br />邮箱:Caixukun11451489@outlook.com
                     </i>
-                    <b> <br />版权所有 ©2025 洽隐山房，保留所有权利</b>
+                    <b> <br />版权所有 ©2025-{{ new Date().getFullYear()}} 洽隐山房，保留所有权利</b>
                 </small>
             </div>
         </div>
     </div>
 </template>
-<script ></script>
+<script></script>

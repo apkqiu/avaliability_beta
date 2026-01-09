@@ -1,29 +1,69 @@
 <script setup>
 import MainView from './components/MainView.vue';
 import { RouterView } from 'vue-router';
-import { onMounted } from 'vue';
 import MainViewNavbar from './components/MainViewNavbar.vue';
-onMounted(async () => {
-  await import("bootstrap") // 为什么呢？
-})
-
+import { useRouter } from 'vue-router';
+import { ref } from 'vue';
 if (import.meta.hot) {
   import.meta.hot.on("vite:beforeUpdate", console.clear);
   import.meta.hot.on("vite:beforeFullReload", console.clear);
 }
+const spinner = ref();
+const errors = ref()
+const router = useRouter()
+let last_timeout = null;
+router.beforeEach((to, from) => {
+  if(last_timeout) clearTimeout(last_timeout)
+  last_timeout = setTimeout(() => {
+    spinner.value = true;
+  }, 300);
+  return true;
+})
+router.afterEach((to, from, failure) => {
+  clearTimeout(last_timeout);
+  last_timeout = null;
+  if (failure) {
+    errors.value = failure;
+    return
+  }
+  errors.value = "";
+  spinner.value = false;
+})
 </script>
 
 <template>
   <RouterView v-slot="{ Component, route }">
     <MainViewNavbar :title="route.meta.title || route.name" />
-    <MainView :title="route.meta.title || route.name">
-      <Transition mode="out-in">
-        <div :key="route.fullPath">
-          <component :is="Component" />
-        </div>
-      </Transition>
-    </MainView>
+    <Suspense>
+      <MainView :title="route.meta.title || route.name">
+        <Transition mode="out-in">
+          <Suspense>
+            <template #default>
+              <div :key="route.fullPath"  v-if="!spinner">
+                <component :is="Component"/>
+              </div>
+              <div :key="route.fullPath+'spinner'" v-else>
+                <div class="spinner-border"></div>
+                <div v-html="errors"></div>
+              </div>
+
+            </template>
+            <template #fallback>
+              <div class="spinner-border"></div>
+            </template>
+          </Suspense>
+        </Transition>
+      </MainView>
+    </Suspense>
   </RouterView>
+  <div class="modal fade " id="loading" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>

@@ -1,5 +1,5 @@
 <script setup>
-import { Random } from '../utils.js';
+import { Random } from '../lib/utils.js';
 import {ref} from 'vue';
 definePage({ meta: { title: "404" } })
 defineProps(["url"]);
