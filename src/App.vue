@@ -13,7 +13,7 @@ const errors = ref()
 const router = useRouter()
 let last_timeout = null;
 router.beforeEach((to, from) => {
-  if(last_timeout) clearTimeout(last_timeout)
+  if (last_timeout) clearTimeout(last_timeout)
   last_timeout = setTimeout(() => {
     spinner.value = true;
   }, 300);
@@ -39,10 +39,10 @@ router.afterEach((to, from, failure) => {
         <Transition mode="out-in">
           <Suspense>
             <template #default>
-              <div :key="route.fullPath"  v-if="!spinner">
-                <component :is="Component"/>
+              <div :key="route.fullPath" v-if="!spinner">
+                <component :is="Component" />
               </div>
-              <div :key="route.fullPath+'spinner'" v-else>
+              <div :key="route.fullPath + 'spinner'" v-else>
                 <div class="spinner-border"></div>
                 <div v-html="errors"></div>
               </div>
@@ -104,3 +104,4 @@ router.afterEach((to, from, failure) => {
   animation: fadeOut 0.2s ease-out;
 }
 </style>
+

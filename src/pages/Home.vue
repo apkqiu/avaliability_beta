@@ -17,12 +17,47 @@ carousel_items[0].active = true;
 
 const dir_items = vfs_articles.news;
 for (let key in dir_items) {
-    items.push({ name: key, title: await new WebDocument(dir_items[key].content, true).getTitle() });
+    items.push({ name: key, title: new WebDocument(dir_items[key].content, true).getTitle() });
 }
 
 definePage({ alias: ['/'], meta: { title: "首页" } })
 
 </script>
+<style scoped>
+.news-bg {
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    max-height: 80vw;
+}
+
+.news-plain {
+    /*横向居中*/
+    text-align: center;
+    /*垂直居中*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+}
+
+.news-txt-box {
+    background: linear-gradient(transparent 70%, black);
+    color: white;
+    height: 100%;
+}
+
+.news-txt {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 10px;
+}
+</style>
 <template>
     <div>
         <div id="carousel" class="carousel slide h-100" style="backdrop-filter: blur(20px)">

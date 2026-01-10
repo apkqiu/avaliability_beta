@@ -7,7 +7,7 @@ for (let type of ["poems", "songs", "words", "writings"]) {
     items[type] = [];
     for (let name in vfs_articles[type]) {
         const file = vfs_articles[type][name];
-        const [title, author] = await new WebDocument(file.content, true).getTitle(1);
+        const [title, author] = new WebDocument(file.content, true).getTitle(1);
         items[type].push({title:`${title} <small>作者：${author}</small>`, name});
     }
 }

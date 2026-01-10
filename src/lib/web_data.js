@@ -7,10 +7,8 @@ export const nav = {
     "首页": "/",
     "新闻": "/news",
     "文学创作": "/text",
-    "自制网页": "/webmaker",
     "设置": "/settings",
     "小程序": "/apps",
-    "资料库": "/resource"
 }
 export const get_carousel = async () => [
     {

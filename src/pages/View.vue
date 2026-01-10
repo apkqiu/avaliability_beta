@@ -17,7 +17,7 @@ onMounted(async () => {
     // normal document ## from articles/news
     if (name) {
         name = name.split("/");
-        doccontent.value.innerHTML = await new WebDocument(vfs_articles[name[0]][name[1]].content,true).render();
+        doccontent.value.innerHTML = new WebDocument(vfs_articles[name[0]][name[1]].content,true).render();
     }
     // pdf document ## from ref/pdf
     if (pdf)
@@ -44,15 +44,7 @@ onMounted(async () => {
     image-orientation: from-image;
 }
 
-.list-group-item,
-.list-group-item {
-    background: transparent;
 
-}
-
-.list-group-item>a {
-    text-decoration: none;
-}
 </style>
 <template>
     <div class="modal fade" ref="preview" tabindex="-1">

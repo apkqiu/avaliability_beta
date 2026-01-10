@@ -1,1 +1,11 @@
 @import "bootstrap/scss/bootstrap";
+
+.list-group,
+.list-group-item {
+  background: transparent;
+
+}
+
+.list-group-item>a {
+  text-decoration: none;
+}

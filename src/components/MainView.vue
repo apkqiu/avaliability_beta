@@ -1,16 +1,33 @@
 <script setup lang="js">
 import { onMounted, ref, nextTick, watchEffect } from "vue";
-import { Color, Variable } from "../lib/utils";
+import { Variable } from "../lib/utils";
 import localforage from "localforage";
 import Parallax from "parallax-js";
 import { rgba } from "../lib/csshelper";
 import { background } from "../lib/web_data";
 const props = defineProps(["title"]);
-
+function hex2rgb(hex) {
+    let r = 0,
+        g = 0,
+        b = 0;
+    // 3 digits
+    if (hex.length == 4) {
+        r = parseInt(hex[1] + hex[1], 16);
+        g = parseInt(hex[2] + hex[2], 16);
+        b = parseInt(hex[3] + hex[3], 16);
+    }
+    // 6 digits
+    else if (hex.length == 7) {
+        r = parseInt(hex[1] + hex[2], 16);
+        g = parseInt(hex[3] + hex[4], 16);
+        b = parseInt(hex[5] + hex[6], 16);
+    }
+    return [r, g, b];
+}
 function load(name, fallback) {
     if (typeof localStorage !== 'undefined')
-    return localStorage.getItem(name) || fallback;
-return fallback;
+        return localStorage.getItem(name) || fallback;
+    return fallback;
 }
 
 const bglayers = ref([]);
@@ -93,7 +110,7 @@ onMounted(() => {
     }">
         <div ref="mainbody" style="min-height: 100vh; padding: 60px 0 0 0; overflow-x: hidden;" :style="{
             background: rgba(
-                Color.hex2rgb(settings.color || '#000').join(','),
+                hex2rgb(settings.color || '#000').join(','),
                 settings.adv_bg ? settings.coloropacity / 100 : 1)
         }">
             <div style="min-height: calc(100vh - 58px); margin: 10px">
@@ -109,7 +126,7 @@ onMounted(() => {
                     <i>
                         <br />电话：13270463238 <br />邮箱:Caixukun11451489@outlook.com
                     </i>
-                    <b> <br />版权所有 ©2025-{{ new Date().getFullYear()}} 洽隐山房，保留所有权利</b>
+                    <b> <br />版权所有 ©2025-{{ new Date().getFullYear() }} 洽隐山房，保留所有权利</b>
                 </small>
             </div>
         </div>

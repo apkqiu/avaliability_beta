@@ -6,7 +6,7 @@ const items = [];
 definePage({ meta: { title: "新闻" } })
 if(items.length==0){
     for (let item in vfs_articles.news) {
-        items.push({name:item,title:await new WebDocument(vfs_articles.news[item].content, true).getTitle()});
+        items.push({name:item,title:new WebDocument(vfs_articles.news[item].content, true).getTitle()});
     }
 }
 </script>

@@ -441,7 +441,6 @@ h1 {
 </template>
 <script setup>
 // 游戏配置
-import { WebFile } from "@/lib/utils"
 import { onMounted } from "vue";
 definePage({
     meta: {

@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted} from 'vue';
+import { onMounted } from 'vue';
 import { nav } from '../lib/web_data';
 import { Offcanvas } from 'bootstrap';
 const props = defineProps(["title"])
@@ -10,7 +10,17 @@ onMounted(async () => {
 })
 
 </script>
-
+<style>
+@media screen and (max-width: 800px) {
+    .hide_on_mobile {
+        display: none;
+        visibility: collapse;
+        height: 0px;
+        width: 0px;
+        overflow: hidden;
+    }
+}
+</style>
 <template>
     <nav class="navbar navbar-expand-sm" style="
       position: fixed;
@@ -42,11 +52,12 @@ onMounted(async () => {
         <div class="offcanvas-body">
             <h3>导航</h3>
             <div class="list-group">
-                <RouterLink class="list-group-item" v-for="name in Object.keys(nav)" :to="nav[name]" @vue:before-update="offcanvas.hide()">{{ name }}
+                <RouterLink class="list-group-item" v-for="name in Object.keys(nav)" :to="nav[name]"
+                    @vue:before-update="offcanvas.hide()">{{ name }}
                 </RouterLink>
             </div>
             <br />
-            
+
         </div>
     </div>
 </template>
