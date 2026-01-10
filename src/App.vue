@@ -33,7 +33,7 @@ router.afterEach((to, from, failure) => {
 
 <template>
   <RouterView v-slot="{ Component, route }">
-    <MainViewNavbar :title="route.meta.title || route.name" />
+    <MainViewNavbar title="洽隐山房" />
     <Suspense>
       <MainView :title="route.meta.title || route.name">
         <Transition mode="out-in">

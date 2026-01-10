@@ -38,7 +38,7 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-#content :deep(img) {
+#a :deep(img) {
     width: 100%;
     display: inline-block;
     image-orientation: from-image;
@@ -65,7 +65,7 @@ onMounted(async () => {
     </div>
     <div class="row">
         <div class="col-md-8">
-            <div style="backdrop-filter: blur(10px); padding: 10px">
+            <div style="backdrop-filter: blur(10px); padding: 10px" id=a>
                 <div ref="content">
                     <PdfViewer :src="pdf_src" v-if="pdf_src" style="width:100%" :options="{ 'scale': 4 }" />
                 </div>

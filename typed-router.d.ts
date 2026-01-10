@@ -37,13 +37,6 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/apps/MineSweeper': RouteRecordInfo<
-      '/apps/MineSweeper',
-      '/apps/MineSweeper',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
     '/apps/TimeProgress': RouteRecordInfo<
       '/apps/TimeProgress',
       '/apps/TimeProgress',
@@ -122,12 +115,6 @@ declare module 'vue-router/auto-routes' {
     'src/pages/apps/Index.vue': {
       routes:
         | '/apps/Index'
-      views:
-        | never
-    }
-    'src/pages/apps/MineSweeper.vue': {
-      routes:
-        | '/apps/MineSweeper'
       views:
         | never
     }

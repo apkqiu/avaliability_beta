@@ -5,6 +5,7 @@ import VueRouter from "unplugin-vue-router/vite"
 import terser from '@rollup/plugin-terser'
 import PostCssPresetEnv from 'postcss-preset-env'
 import virtualArticle from './src/plugins/vfs'
+import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 const BIG_BUNDLE = 0;
 export default defineConfig({
@@ -12,6 +13,7 @@ export default defineConfig({
     VueRouter(),
     vue(),
     virtualArticle(),
+    tailwindcss(),
   ],
   base: "/avaliability_beta/",
   build: {
@@ -36,7 +38,7 @@ export default defineConfig({
         ascii_only: true,
         comments: false,
       },
-      maxWorkers: 128,
+      maxWorkers: 128
     },
     rollupOptions: {
       plugins: [
