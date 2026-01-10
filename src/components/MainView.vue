@@ -31,7 +31,7 @@ function load(name, fallback) {
 }
 
 const bglayers = ref([]);
-// [{img: "/bg-1.jpg", deepth: 0.5}, ...]
+// [{img: "/bg-1.webp", deepth: 0.5}, ...]
 const get_setting = () => {
     return {
         color: load("color", "#000000"),
